@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>México — La Tierra del Sol</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Bebas+Neue&family=Space+Mono:ital@0;1&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════
+       VARIABLES & RESET
+    ══════════════════════════════════════════ */
+    :root {
+      --rojo:       #C0392B;
+      --verde:      #1A6B3C;
+      --oro:        #D4A017;
+      --oro-claro:  #F5DFA0;
+      --crema:      #FAF6EE;
+      --cafe:       #4A2C0A;
+      --negro:      #0D0D0D;
+      --blanco:     #FFFFFF;
+      --gris-suave: #F0EBE0;
+
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body:    'Cormorant Garamond', Georgia, serif;
+      --font-stamp:   'Bebas Neue', sans-serif;
+      --font-mono:    'Space Mono', monospace;
+
+      --gap-xl: 7rem;
+      --gap-lg: 4rem;
+      --gap-md: 2rem;
+      --gap-sm: 1rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--crema);
+      color: var(--negro);
+      font-family: var(--font-body);
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ══════════════════════════════════════════
+       GRAIN OVERLAY
+    ══════════════════════════════════════════ */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      background-size: 180px;
+      pointer-events: none;
+      z-index: 1000;
+      opacity: .45;
+    }
+
+    /* ══════════════════════════════════════════
+       HERO
+    ══════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 1fr auto;
+      background: var(--negro);
+      overflow: hidden;
+    }
+
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(192,57,43,.35) 0%, transparent 65%),
+        radial-gradient(ellipse 60% 80% at 20% 80%, rgba(26,107,60,.3) 0%, transparent 60%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(212,160,23,.08) 0%, transparent 70%),
+        var(--negro);
+      animation: pulse-bg 8s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulse-bg {
+      from { opacity: .8; }
+      to   { opacity: 1; }
+    }
+
+    /* Decorative diagonal stripes */
+    .hero__bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 60px,
+        rgba(212,160,23,.03) 60px,
+        rgba(212,160,23,.03) 61px
+      );
+    }
+
+    .hero__content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 6rem clamp(2rem, 8vw, 9rem);
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero__eyebrow {
+      font-family: var(--font-stamp);
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      letter-spacing: .4em;
+      color: var(--oro);
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp .8s .2s forwards;
+    }
+
+    .hero__title {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(4.5rem, 12vw, 11rem);
+      line-height: .9;
+      color: var(--blanco);
+      letter-spacing: -.02em;
+      opacity: 0;
+      animation: fadeUp 1s .4s forwards;
+    }
+
+    .hero__title em {
+      display: block;
+      font-style: italic;
+      color: var(--oro);
+      font-weight: 400;
+      font-size: .55em;
+      letter-spacing: .01em;
+      margin-top: .2em;
+    }
+
+    .hero__subtitle {
+      margin-top: 2.5rem;
+      max-width: 520px;
+      font-size: clamp(1rem, 1.4vw, 1.15rem);
+      color: rgba(255,255,255,.65);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.7;
+      opacity: 0;
+      animation: fadeUp .9s .7s forwards;
+    }
+
+    .hero__scroll {
+      margin-top: 4rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .15em;
+      color: rgba(255,255,255,.35);
+      opacity: 0;
+      animation: fadeUp .8s 1.1s forwards;
+    }
+
+    .hero__scroll::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--oro);
+    }
+
+    .hero__bar {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      height: 8px;
+    }
+
+    .hero__bar span {
+      flex: 1;
+    }
+
+    .hero__bar span:nth-child(1) { background: var(--verde); }
+    .hero__bar span:nth-child(2) { background: var(--blanco); }
+    .hero__bar span:nth-child(3) { background: var(--rojo); }
+
+    /* ══════════════════════════════════════════
+       IMAGEN HERO (parallax placeholder)
+    ══════════════════════════════════════════ */
+    .img-block {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-block--hero {
+      height: clamp(320px, 55vw, 680px);
+      background:
+        linear-gradient(to bottom, rgba(13,13,13,.4) 0%, transparent 30%, rgba(13,13,13,.5) 100%),
+        url('https://images.unsplash.com/photo-1518638150340-f706e86654de?w=1400&q=80') center/cover no-repeat;
+      display: flex;
+      align-items: flex-end;
+      padding: 3rem clamp(2rem, 8vw, 9rem);
+    }
+
+    .img-block--hero .img-caption {
+      color: rgba(255,255,255,.55);
+      font-family: var(--font-mono);
+      font-size: .68rem;
+      letter-spacing: .12em;
+    }
+
+    /* ══════════════════════════════════════════
+       SECCIONES GENERALES
+    ══════════════════════════════════════════ */
+    section {
+      position: relative;
+    }
+
+    .section-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: var(--gap-xl) clamp(2rem, 6vw, 6rem);
+    }
+
+    /* Numeración de sección */
+    .section-num {
+      font-family: var(--font-stamp);
+      font-size: clamp(5rem, 12vw, 9rem);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1.5px var(--oro-claro);
+      position: absolute;
+      top: 3rem;
+      right: clamp(2rem, 6vw, 6rem);
+      pointer-events: none;
+      user-select: none;
+      opacity: .4;
+    }
+
+    .section-label {
+      font-family: var(--font-stamp);
+      font-size: .85rem;
+      letter-spacing: .4em;
+      color: var(--rojo);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 28px;
+      height: 2px;
+      background: var(--rojo);
+    }
+
+    h2 {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--cafe);
+      margin-bottom: 2rem;
+    }
+
+    h2 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rojo);
+    }
+
+    h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.5vw, 1.9rem);
+      font-weight: 600;
+      color: var(--cafe);
+      margin-bottom: .8rem;
+    }
+
+    p {
+      color: #3A2A1A;
+      font-weight: 300;
+      margin-bottom: 1.4rem;
+      max-width: 68ch;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 1 – HISTORIA (layout asimétrico)
+    ══════════════════════════════════════════ */
+    .sec-historia {
+      background: var(--crema);
+    }
+
+    .sec-historia .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-lg);
+      align-items: start;
+    }
+
+    .historia__left {
+      position: sticky;
+      top: 6rem;
+    }
+
+    .historia__quote {
+      margin-top: 3rem;
+      padding-left: 2rem;
+      border-left: 3px solid var(--oro);
+    }
+
+    .historia__quote blockquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.2rem, 2vw, 1.55rem);
+      color: var(--cafe);
+      line-height: 1.5;
+    }
+
+    .historia__quote cite {
+      display: block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: .7rem;
+      letter-spacing: .12em;
+      color: var(--rojo);
+      font-style: normal;
+    }
+
+    .historia__right {
+      padding-top: 2rem;
+    }
+
+    /* ══════════════════════════════════════════
+       IMAGEN FRANJA — entre secciones
+    ══════════════════════════════════════════ */
+    .img-franja {
+      height: clamp(280px, 45vw, 600px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img-franja__inner {
+      position: absolute;
+      inset: -60px;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      transition: transform .1s linear;
+    }
+
+    .img-franja--teotihuacan .img-franja__inner {
+      background-image:
+        linear-gradient(to right, rgba(13,13,13,.6) 0%, transparent 40%, transparent 60%, rgba(13,13,13,.6) 100%),
+        url('https://images.unsplash.com/photo-1547558902-c0e053edd7dd?w=1400&q=80');
+    }
+
+    .img-franja--oaxaca .img-franja__inner {
+      background-image:
+        linear-gradient(to bottom, rgba(13,13,13,.3), rgba(13,13,13,.5)),
+        url('https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=1400&q=80');
+    }
+
+    .img-franja--cenote .img-franja__inner {
+      background-image:
+        linear-gradient(135deg, rgba(26,107,60,.4) 0%, transparent 50%),
+        url('https://images.unsplash.com/photo-1552931136-1bbd64cb5e06?w=1400&q=80');
+    }
+
+    .img-franja--ciudad .img-franja__inner {
+      background-image:
+        linear-gradient(to bottom, rgba(13,13,13,.1), rgba(13,13,13,.6)),
+        url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=1400&q=80');
+    }
+
+    .img-franja__overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2;
+    }
+
+    .img-franja__stamp {
+      font-family: var(--font-stamp);
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: rgba(255,255,255,.12);
+      letter-spacing: .15em;
+      text-align: center;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .img-franja__caption {
+      position: absolute;
+      bottom: 1.5rem;
+      right: 2rem;
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.45);
+      z-index: 3;
+    }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 2 – GEOGRAFÍA (fondo oscuro)
+    ══════════════════════════════════════════ */
+    .sec-geografia {
+      background: var(--negro);
+      color: var(--blanco);
+    }
+
+    .sec-geografia .section-inner {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: var(--gap-lg);
+      align-items: center;
+    }
+
+    .sec-geografia h2 { color: var(--blanco); }
+    .sec-geografia h2 em { color: var(--oro); }
+    .sec-geografia p { color: rgba(255,255,255,.65); max-width: 60ch; }
+    .sec-geografia .section-label { color: var(--oro); }
+    .sec-geografia .section-label::before { background: var(--oro); }
+
+    .geo-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5px;
+      background: rgba(255,255,255,.08);
+    }
+
+    .geo-stat {
+      background: var(--negro);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+
+    .geo-stat__num {
+      font-family: var(--font-stamp);
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      color: var(--oro);
+      line-height: 1;
+      display: block;
+    }
+
+    .geo-stat__label {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .12em;
+      color: rgba(255,255,255,.4);
+      display: block;
+      margin-top: .5rem;
+    }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 3 – CULTURA (grid de tarjetas)
+    ══════════════════════════════════════════ */
+    .sec-cultura {
+      background: var(--gris-suave);
+    }
+
+    .cultura-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 4rem;
+      background: rgba(74,44,10,.12);
+    }
+
+    .cultura-card {
+      background: var(--crema);
+      padding: 2.5rem 2rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform .35s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    .cultura-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--rojo), var(--oro), var(--verde));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform .4s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    .cultura-card:hover { transform: translateY(-4px); }
+    .cultura-card:hover::before { transform: scaleX(1); }
+
+    .cultura-card__icon {
+      font-size: 2.2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .cultura-card__title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--cafe);
+      margin-bottom: .8rem;
+    }
+
+    .cultura-card__text {
+      font-size: .95rem;
+      color: #5A4030;
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 100%;
+    }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 4 – GASTRONOMÍA
+    ══════════════════════════════════════════ */
+    .sec-gastronomia {
+      background: var(--crema);
+    }
+
+    .sec-gastronomia .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: var(--gap-lg);
+      align-items: start;
+    }
+
+    .gastro-list {
+      list-style: none;
+      margin-top: 2.5rem;
+    }
+
+    .gastro-list li {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid rgba(74,44,10,.1);
+      font-size: 1rem;
+      color: var(--cafe);
+    }
+
+    .gastro-list li:first-child { border-top: 1px solid rgba(74,44,10,.1); }
+
+    .gastro-list__num {
+      font-family: var(--font-stamp);
+      font-size: 1.8rem;
+      color: var(--oro);
+      line-height: 1;
+      min-width: 2.5rem;
+    }
+
+    .gastro-list__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .gastro-list__desc {
+      font-size: .88rem;
+      color: #7A5A3A;
+      font-style: italic;
+      margin-left: auto;
+      text-align: right;
+    }
+
+    .gastro-text { padding-top: 1rem; }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 5 – NATURALEZA (fondo verde)
+    ══════════════════════════════════════════ */
+    .sec-naturaleza {
+      background: var(--verde);
+    }
+
+    .sec-naturaleza .section-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--gap-lg);
+      align-items: center;
+    }
+
+    .sec-naturaleza h2 { color: var(--blanco); }
+    .sec-naturaleza h2 em { color: var(--oro-claro); }
+    .sec-naturaleza p { color: rgba(255,255,255,.75); max-width: 56ch; }
+    .sec-naturaleza .section-label { color: var(--oro-claro); }
+    .sec-naturaleza .section-label::before { background: var(--oro-claro); }
+
+    .naturaleza-facts {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .nat-fact {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      padding: 1.5rem;
+      background: rgba(255,255,255,.08);
+      border-left: 3px solid var(--oro-claro);
+    }
+
+    .nat-fact__icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+    }
+
+    .nat-fact__title {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--blanco);
+      margin-bottom: .3rem;
+    }
+
+    .nat-fact__text {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      line-height: 1.6;
+      max-width: 100%;
+      margin: 0;
+    }
+
+    /* ══════════════════════════════════════════
+       SECCIÓN 6 – CIUDADES
+    ══════════════════════════════════════════ */
+    .sec-ciudades {
+      background: var(--negro);
+    }
+
+    .sec-ciudades .section-label { color: var(--oro); }
+    .sec-ciudades .section-label::before { background: var(--oro); }
+    .sec-ciudades h2 { color: var(--blanco); }
+    .sec-ciudades h2 em { color: var(--rojo); }
+    .sec-ciudades > .section-inner > p { color: rgba(255,255,255,.55); }
+
+    .ciudades-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5px;
+      margin-top: 3rem;
+      background: rgba(255,255,255,.05);
+    }
+
+    .ciudad-card {
+      background: var(--negro);
+      padding: 2.5rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 220px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: background .3s;
+    }
+
+    .ciudad-card::before {
+      content: attr(data-num);
+      position: absolute;
+      top: 1rem;
+      right: 1.2rem;
+      font-family: var(--font-stamp);
+      font-size: 4rem;
+      color: rgba(255,255,255,.04);
+      line-height: 1;
+    }
+
+    .ciudad-card:hover { background: #1A1A1A; }
+
+    .ciudad-card__name {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--blanco);
+      margin-bottom: .4rem;
+    }
+
+    .ciudad-card__tag {
+      font-family: var(--font-mono);
+      font-size: .62rem;
+      letter-spacing: .15em;
+      color: var(--oro);
+    }
+
+    .ciudad-card__desc {
+      font-size: .85rem;
+      color: rgba(255,255,255,.45);
+      margin-top: .8rem;
+      line-height: 1.6;
+      max-width: 100%;
+    }
+
+    /* ══════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════ */
+    footer {
+      background: var(--cafe);
+      color: rgba(255,255,255,.5);
+      padding: 4rem clamp(2rem, 6vw, 6rem);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+
+    .footer__brand {
+      font-family: var(--font-stamp);
+      font-size: 2.5rem;
+      color: var(--oro);
+      letter-spacing: .08em;
+      line-height: 1;
+    }
+
+    .footer__sub {
+      font-family: var(--font-mono);
+      font-size: .65rem;
+      letter-spacing: .2em;
+      color: rgba(255,255,255,.3);
+      margin-top: .4rem;
+    }
+
+    .footer__flag {
+      display: flex;
+      height: 4px;
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .footer__flag span:nth-child(1) { flex: 1; background: var(--verde); }
+    .footer__flag span:nth-child(2) { flex: 1; background: var(--blanco); }
+    .footer__flag span:nth-child(3) { flex: 1; background: var(--rojo); }
+
+    .footer__copy {
+      font-size: .75rem;
+    }
+
+    /* ══════════════════════════════════════════
+       ANIMACIONES
+    ══════════════════════════════════════════ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity .7s cubic-bezier(.25,.46,.45,.94),
+                  transform .7s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ══════════════════════════════════════════
+       DIVISOR DECORATIVO
+    ══════════════════════════════════════════ */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin: 3.5rem 0;
+    }
+
+    .divider__line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(74,44,10,.25), transparent);
+    }
+
+    .divider__ornament {
+      color: var(--oro);
+      font-size: 1.2rem;
+    }
+
+    /* ══════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      .sec-historia .section-inner,
+      .sec-geografia .section-inner,
+      .sec-gastronomia .section-inner,
+      .sec-naturaleza .section-inner { grid-template-columns: 1fr; }
+
+      .historia__left { position: static; }
+      .cultura-grid  { grid-template-columns: 1fr 1fr; }
+      .ciudades-grid { grid-template-columns: 1fr 1fr; }
+      .sec-ciudades .section-inner > p { max-width: 100%; }
+    }
+
+    @media (max-width: 560px) {
+      .cultura-grid  { grid-template-columns: 1fr; }
+      .ciudades-grid { grid-template-columns: 1fr; }
+      .geo-stats     { grid-template-columns: 1fr 1fr; }
+      footer         { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════
+       HERO
+  ══════════════════════════════════════ -->
+  <header class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__content">
+      <p class="hero__eyebrow">Descubre · Explora · Vive</p>
+      <h1 class="hero__title">
+        México
+        <em>La Tierra del Sol</em>
+      </h1>
+      <p class="hero__subtitle">
+        Un país que conjuga cinco mil años de historia, la mayor biodiversidad del planeta
+        y una cultura viva que late en cada rincón de su territorio.
+      </p>
+      <p class="hero__scroll">Desplázate para explorar</p>
+    </div>
+    <div class="hero__bar">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
+
+  <!-- IMAGEN 1 – Vista aérea Ciudad de México -->
+  <div class="img-block img-block--hero">
+    <span class="img-caption">Ciudad de México — 21.6 millones de habitantes</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 1 – HISTORIA
+  ══════════════════════════════════════ -->
+  <section class="sec-historia">
+    <span class="section-num">01</span>
+    <div class="section-inner">
+      <div class="historia__left reveal">
+        <p class="section-label">Historia</p>
+        <h2>Cinco mil años<br /><em>de civilización</em></h2>
+        <p>
+          El territorio mexicano albergó a las más brillantes civilizaciones mesoamericanas:
+          los olmecas, mayas, zapotecas, mixtecas y mexicas, quienes construyeron ciudades,
+          sistemas astronómicos y códices que asombran al mundo hasta hoy.
+        </p>
+        <div class="historia__quote">
+          <blockquote>
+            "México es un país que siempre está naciendo,
+            que nunca termina de nacer."
+          </blockquote>
+          <cite>— Octavio Paz, El laberinto de la soledad</cite>
+        </div>
+      </div>
+
+      <div class="historia__right reveal">
+        <h3>Los Olmecas (1500 a.C. — 400 a.C.)</h3>
+        <p>
+          Considerados la «cultura madre» de Mesoamérica, los olmecas desarrollaron
+          los primeros sistemas de escritura y calendario del continente. Sus cabezas
+          colosales, esculpidas en basalto, siguen siendo un enigma arqueológico.
+        </p>
+
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__ornament">✦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <h3>Los Mayas (2000 a.C. — 1500 d.C.)</h3>
+        <p>
+          La civilización maya alcanzó cimas extraordinarias en astronomía, matemáticas
+          y arquitectura. Su calendario de 365 días y el concepto del cero fueron
+          aportaciones fundamentales al conocimiento humano.
+        </p>
+
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__ornament">✦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <h3>El Imperio Mexica (1325 — 1521 d.C.)</h3>
+        <p>
+          Los mexicas fundaron Tenochtitlán sobre un lago, creando una de las ciudades
+          más pobladas del mundo medieval. Su ingeniería hidráulica, sus chinampas y
+          su organización política sorprendieron a los conquistadores españoles.
+        </p>
+
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__ornament">✦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <h3>México Independiente (1821 — presente)</h3>
+        <p>
+          Tras la guerra de independencia y una revolución que transformó el orden social,
+          México construyó una república federal de 32 estados que hoy es la decimoquinta
+          economía del mundo y una potencia cultural global.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGEN 2 – Teotihuacán -->
+  <div class="img-franja img-franja--teotihuacan">
+    <div class="img-franja__inner"></div>
+    <div class="img-franja__overlay">
+      <span class="img-franja__stamp">Teotihuacán</span>
+    </div>
+    <span class="img-franja__caption">Pirámide del Sol · Estado de México · Patrimonio UNESCO</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 2 – GEOGRAFÍA
+  ══════════════════════════════════════ -->
+  <section class="sec-geografia">
+    <span class="section-num" style="-webkit-text-stroke-color:rgba(212,160,23,.15);">02</span>
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Geografía</p>
+        <h2>Un territorio<br /><em>de contrastes</em></h2>
+        <p>
+          Con casi dos millones de kilómetros cuadrados, México es el decimocuarto país
+          más grande del mundo. Su geografía abarca desiertos árticos, selvas tropicales,
+          altas montañas volcánicas, costas en dos océanos y más de 5,000 kilómetros
+          de litoral.
+        </p>
+        <p>
+          El Popocatépetl y el Iztaccíhuatl vigilan el Valle de México; el Pico de Orizaba,
+          con 5,636 metros, es el tercer volcán más alto de Norteamérica. Al sur, la
+          Selva Lacandona alberga una de las mayores densidades de vida del planeta.
+        </p>
+        <p>
+          La Península de Yucatán, con sus cenotes y arrecifes de coral, y la Baja
+          California, con su mar de Cortés —llamado «el acuario del mundo» por
+          Jacques Cousteau— completan un mosaico geográfico sin igual.
+        </p>
+      </div>
+
+      <div class="geo-stats reveal">
+        <div class="geo-stat">
+          <span class="geo-stat__num">1.97M</span>
+          <span class="geo-stat__label">km² de territorio</span>
+        </div>
+        <div class="geo-stat">
+          <span class="geo-stat__num">32</span>
+          <span class="geo-stat__label">estados federales</span>
+        </div>
+        <div class="geo-stat">
+          <span class="geo-stat__num">5,636</span>
+          <span class="geo-stat__label">metros Pico Orizaba</span>
+        </div>
+        <div class="geo-stat">
+          <span class="geo-stat__num">11,122</span>
+          <span class="geo-stat__label">km de costas</span>
+        </div>
+        <div class="geo-stat">
+          <span class="geo-stat__num">2,500</span>
+          <span class="geo-stat__label">km de frontera norte</span>
+        </div>
+        <div class="geo-stat">
+          <span class="geo-stat__num">4°</span>
+          <span class="geo-stat__label">lugar en biodiversidad</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGEN 3 – Oaxaca -->
+  <div class="img-franja img-franja--oaxaca">
+    <div class="img-franja__inner"></div>
+    <div class="img-franja__overlay">
+      <span class="img-franja__stamp">Oaxaca</span>
+    </div>
+    <span class="img-franja__caption">Monte Albán · Oaxaca · 500 a.C.</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 3 – CULTURA
+  ══════════════════════════════════════ -->
+  <section class="sec-cultura">
+    <span class="section-num">03</span>
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Cultura</p>
+        <h2>Arte, tradición<br /><em>y memoria viva</em></h2>
+        <p>
+          México es el país latinoamericano con más Sitios del Patrimonio Mundial de la
+          UNESCO (35 en total). Su riqueza cultural abarca desde las pirámides prehispánicas
+          hasta el muralismo del siglo XX, pasando por una artesanía que fusiona
+          técnicas indígenas con influencias globales.
+        </p>
+      </div>
+
+      <div class="cultura-grid reveal">
+        <div class="cultura-card">
+          <span class="cultura-card__icon">🎨</span>
+          <p class="cultura-card__title">Muralismo Mexicano</p>
+          <p class="cultura-card__text">Diego Rivera, José Clemente Orozco y David Alfaro Siqueiros transformaron los muros públicos en monumentos al pueblo, creando el movimiento pictórico más influyente del siglo XX en América.</p>
+        </div>
+        <div class="cultura-card">
+          <span class="cultura-card__icon">💀</span>
+          <p class="cultura-card__title">Día de Muertos</p>
+          <p class="cultura-card__text">Declarado Patrimonio Cultural Inmaterial de la Humanidad, esta celebración fusiona tradiciones prehispánicas con el catolicismo para honrar a los difuntos con altares, flores de cempasúchil y calaveras de azúcar.</p>
+        </div>
+        <div class="cultura-card">
+          <span class="cultura-card__icon">🎭</span>
+          <p class="cultura-card__title">Artesanía y Textiles</p>
+          <p class="cultura-card__text">La cerámica talavera, los tapetes zapotecos, el amate de los nahuas y los bordados de Chiapas representan tradiciones vivas transmitidas por generaciones en más de 68 grupos indígenas.</p>
+        </div>
+        <div class="cultura-card">
+          <span class="cultura-card__icon">🎵</span>
+          <p class="cultura-card__title">Mariachi y Son</p>
+          <p class="cultura-card__text">El mariachi, originario de Jalisco, fue declarado Patrimonio de la UNESCO en 2011. El son jarocho, el huapango y la cumbia son expresiones musicales que definen la identidad regional del país.</p>
+        </div>
+        <div class="cultura-card">
+          <span class="cultura-card__icon">📚</span>
+          <p class="cultura-card__title">Literatura</p>
+          <p class="cultura-card__text">Octavio Paz, Premio Nobel 1990, Juan Rulfo, Carlos Fuentes y Elena Poniatowska forman parte de una tradición literaria que ha marcado las letras hispanoamericanas del siglo XX y XXI.</p>
+        </div>
+        <div class="cultura-card">
+          <span class="cultura-card__icon">🏺</span>
+          <p class="cultura-card__title">68 Pueblos Indígenas</p>
+          <p class="cultura-card__text">México reconoce 68 pueblos indígenas con sus propias lenguas, cosmogonías y tradiciones. El náhuatl, el maya y el zapoteco son las lenguas con más hablantes después del español.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 4 – GASTRONOMÍA
+  ══════════════════════════════════════ -->
+  <section class="sec-gastronomia">
+    <span class="section-num">04</span>
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Gastronomía</p>
+        <h2>La cocina<br /><em>patrimonio mundial</em></h2>
+        <p>
+          La gastronomía mexicana fue declarada Patrimonio Cultural Inmaterial de la Humanidad
+          por la UNESCO en 2010, siendo la primera cocina nacional en recibir este honor.
+          Su base —maíz, chile y frijol— sustenta una diversidad de sabores que varía
+          radicalmente de región en región.
+        </p>
+        <p>
+          El mole negro de Oaxaca, con más de 30 ingredientes, el ceviche de Sinaloa,
+          la cochinita pibil yucateca y los tacos de canasta del centro del país
+          representan apenas una fracción de esta riqueza culinaria milenaria.
+        </p>
+
+        <ul class="gastro-list">
+          <li>
+            <span class="gastro-list__num">01</span>
+            <span class="gastro-list__name">Tacos</span>
+            <span class="gastro-list__desc">El antojito nacional</span>
+          </li>
+          <li>
+            <span class="gastro-list__num">02</span>
+            <span class="gastro-list__name">Mole Poblano</span>
+            <span class="gastro-list__desc">Puebla · s. XVII</span>
+          </li>
+          <li>
+            <span class="gastro-list__num">03</span>
+            <span class="gastro-list__name">Tamales</span>
+            <span class="gastro-list__desc">5,000 años de historia</span>
+          </li>
+          <li>
+            <span class="gastro-list__num">04</span>
+            <span class="gastro-list__name">Cochinita Pibil</span>
+            <span class="gastro-list__desc">Yucatán · receta maya</span>
+          </li>
+          <li>
+            <span class="gastro-list__num">05</span>
+            <span class="gastro-list__name">Chiles en Nogada</span>
+            <span class="gastro-list__desc">Colores de la bandera</span>
+          </li>
+          <li>
+            <span class="gastro-list__num">06</span>
+            <span class="gastro-list__name">Pozole</span>
+            <span class="gastro-list__desc">Ritual prehispánico</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="gastro-text reveal">
+        <h3>El maíz: origen de todo</h3>
+        <p>
+          México es el centro de origen y diversificación del maíz. Con más de 64 razas
+          nativas, el maíz no es solo un ingrediente: es cosmovisión, identidad y
+          sustento de millones. La tortilla, preparada a mano desde hace milénios,
+          es el pan cotidiano de México.
+        </p>
+
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__ornament">✦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <h3>El cacao y el chocolate</h3>
+        <p>
+          Los mayas y aztecas consumían el cacao como bebida sagrada y moneda de cambio.
+          México introdujo el chocolate al mundo. Hoy, Oaxaca y Chiapas producen algunos
+          de los cacaos más apreciados por los maestros chocolateros europeos.
+        </p>
+
+        <div class="divider">
+          <span class="divider__line"></span>
+          <span class="divider__ornament">✦</span>
+          <span class="divider__line"></span>
+        </div>
+
+        <h3>El tequila y el mezcal</h3>
+        <p>
+          Destilados del agave —planta sagrada para los pueblos del México antiguo—,
+          el tequila (Jalisco) y el mezcal (Oaxaca) son hoy bebidas con denominación
+          de origen reconocida internacionalmente y en auge en los mercados mundiales.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGEN 4 – Cenote -->
+  <div class="img-franja img-franja--cenote">
+    <div class="img-franja__inner"></div>
+    <div class="img-franja__overlay">
+      <span class="img-franja__stamp">Yucatán</span>
+    </div>
+    <span class="img-franja__caption">Cenote Ik Kil · Yucatán · Portales al inframundo maya</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 5 – NATURALEZA
+  ══════════════════════════════════════ -->
+  <section class="sec-naturaleza">
+    <span class="section-num" style="-webkit-text-stroke-color:rgba(255,255,255,.07);">05</span>
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Naturaleza</p>
+        <h2>Megadiversidad<br /><em>sin fronteras</em></h2>
+        <p>
+          México es uno de los 17 países megadiversos del mundo, albergando el 10% de
+          todas las especies conocidas del planeta en apenas el 1.5% de la superficie
+          terrestre. Esta riqueza biológica es resultado de su posición geográfica,
+          que une los reinos Neártico y Neotropical.
+        </p>
+        <p>
+          Sus 182 áreas naturales protegidas cubren más de 90 millones de hectáreas,
+          incluyendo reservas de la biosfera de importancia mundial como la Mariposa
+          Monarca, Sian Ka'an y el Alto Golfo de California.
+        </p>
+      </div>
+
+      <div class="naturaleza-facts reveal">
+        <div class="nat-fact">
+          <span class="nat-fact__icon">🦋</span>
+          <div>
+            <p class="nat-fact__title">Reserva de la Mariposa Monarca</p>
+            <p class="nat-fact__text">Cada invierno, más de 100 millones de mariposas monarca migran desde Canadá para invernar en los bosques de Michoacán y Estado de México. Patrimonio UNESCO desde 2008.</p>
+          </div>
+        </div>
+        <div class="nat-fact">
+          <span class="nat-fact__icon">🐋</span>
+          <div>
+            <p class="nat-fact__title">Mar de Cortés</p>
+            <p class="nat-fact__text">Llamado «el acuario del mundo», alberga 695 especies de peces, 39% de los mamíferos marinos del mundo y los principales sitios de reproducción de la ballena azul.</p>
+          </div>
+        </div>
+        <div class="nat-fact">
+          <span class="nat-fact__icon">🌵</span>
+          <div>
+            <p class="nat-fact__title">Chihuahuan Desert</p>
+            <p class="nat-fact__text">El desierto de Chihuahua es el más grande de Norteamérica y el más biodiverso del planeta, con más de 3,500 especies de plantas, incluyendo el 25% de todas las cactáceas del mundo.</p>
+          </div>
+        </div>
+        <div class="nat-fact">
+          <span class="nat-fact__icon">🌊</span>
+          <div>
+            <p class="nat-fact__title">Arrecife Mesoamericano</p>
+            <p class="nat-fact__text">El segundo arrecife de coral más grande del mundo bordea la costa del Caribe mexicano, sustentando una biodiversidad marina excepcional en el Parque Nacional Arrecifes de Cozumel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMAGEN 5 – Ciudad de México nocturna -->
+  <div class="img-franja img-franja--ciudad">
+    <div class="img-franja__inner"></div>
+    <div class="img-franja__overlay">
+      <span class="img-franja__stamp">Ciudad de México</span>
+    </div>
+    <span class="img-franja__caption">CDMX · 21.6 millones · Capital Federal desde 1824</span>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SECCIÓN 6 – CIUDADES
+  ══════════════════════════════════════ -->
+  <section class="sec-ciudades">
+    <span class="section-num" style="-webkit-text-stroke-color:rgba(212,160,23,.08);">06</span>
+    <div class="section-inner">
+      <div class="reveal">
+        <p class="section-label">Ciudades</p>
+        <h2>Metrópolis que<br /><em>no duermen</em></h2>
+        <p>México cuenta con 11 zonas metropolitanas de más de un millón de habitantes, cada una con identidad propia.</p>
+      </div>
+
+      <div class="ciudades-grid reveal">
+        <div class="ciudad-card" data-num="01">
+          <p class="ciudad-card__name">Ciudad de México</p>
+          <p class="ciudad-card__tag">CAPITAL · 21.6 M hab.</p>
+          <p class="ciudad-card__desc">La megalópolis latinoamericana por excelencia: museos, gastronomía mundial, arquitectura virreinal y vanguardia cultural en perpetua ebullición.</p>
+        </div>
+        <div class="ciudad-card" data-num="02">
+          <p class="ciudad-card__name">Guadalajara</p>
+          <p class="ciudad-card__tag">JALISCO · 5.2 M hab.</p>
+          <p class="ciudad-card__desc">Cuna del mariachi y el tequila, capital tecnológica del occidente y ciudad con una de las escenas artísticas más vibrantes del país.</p>
+        </div>
+        <div class="ciudad-card" data-num="03">
+          <p class="ciudad-card__name">Monterrey</p>
+          <p class="ciudad-card__tag">NUEVO LEÓN · 5.3 M hab.</p>
+          <p class="ciudad-card__desc">Motor industrial y financiero de México, enmarcada por la Sierra Madre Oriental y sede de algunas de las mejores universidades de Latinoamérica.</p>
+        </div>
+        <div class="ciudad-card" data-num="04">
+          <p class="ciudad-card__name">Oaxaca</p>
+          <p class="ciudad-card__tag">OAXACA · 295 K hab.</p>
+          <p class="ciudad-card__desc">Ciudad Patrimonio UNESCO, capital gastronómica y artesanal, punto de encuentro de 16 pueblos indígenas y escenario del Guelaguetza.</p>
+        </div>
+        <div class="ciudad-card" data-num="05">
+          <p class="ciudad-card__name">Mérida</p>
+          <p class="ciudad-card__tag">YUCATÁN · 1.1 M hab.</p>
+          <p class="ciudad-card__desc">La Ciudad Blanca, puerta de la civilización maya, elegida varias veces como la ciudad más segura y con mejor calidad de vida de México.</p>
+        </div>
+        <div class="ciudad-card" data-num="06">
+          <p class="ciudad-card__name">San Cristóbal</p>
+          <p class="ciudad-card__tag">CHIAPAS · 215 K hab.</p>
+          <p class="ciudad-card__desc">Ciudad colonial a 2,100 metros de altura, rodeada de comunidades tzotziles y tzeltales, con mercados de colores y selvas tropicales.</p>
+        </div>
+        <div class="ciudad-card" data-num="07">
+          <p class="ciudad-card__name">Puebla</p>
+          <p class="ciudad-card__tag">PUEBLA · 3.2 M hab.</p>
+          <p class="ciudad-card__desc">Ciudad del mole y los chiles en nogada, con el centro histórico colonial más completo de México y la Catedral más alta del país.</p>
+        </div>
+        <div class="ciudad-card" data-num="08">
+          <p class="ciudad-card__name">Cancún</p>
+          <p class="ciudad-card__tag">Q. ROO · 888 K hab.</p>
+          <p class="ciudad-card__desc">Puerta del Caribe mexicano: arenas blancas, arrecifes de coral, ruinas mayas en la selva y una vida nocturna de fama internacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer__flag"><span></span><span></span><span></span></div>
+      <p class="footer__brand">México</p>
+      <p class="footer__sub">La Tierra del Sol · República Mexicana</p>
+    </div>
+    <p class="footer__copy">
+      Página informativa · Contenido de carácter educativo<br />
+      Imágenes: Unsplash · Tipografía: Google Fonts
+    </p>
+  </footer>
+
+  <script>
+    // Intersection Observer para animaciones al hacer scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
