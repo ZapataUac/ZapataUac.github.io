@@ -1,47 +1,500 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>México: Tierra de Cultura y Sol</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>México</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,600;1,400&family=Bebas+Neue&display=swap" rel="stylesheet" />
+  <style>
+
+    :root {
+      --rojo:  #B83227;
+      --verde: #1A6B3C;
+      --oro:   #C9900C;
+      --crema: #F9F5ED;
+      --cafe:  #3B2009;
+      --negro: #0C0C0C;
+      --texto: #2C1A08;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      line-height: 1.9;
+      color: var(--texto);
+      background: var(--crema);
+      overflow-x: hidden;
+    }
+
+    /* ── HERO ─────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      background: var(--negro);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 0 6rem clamp(2rem, 8vw, 9rem);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 75% 35%, rgba(184,50,39,.4), transparent 65%),
+        radial-gradient(ellipse 55% 75% at 15% 85%, rgba(26,107,60,.35), transparent 60%),
+        var(--negro);
+    }
+
+    .hero__inner { position: relative; z-index: 2; }
+
+    .hero__sup {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .45em;
+      font-size: .9rem;
+      color: var(--oro);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: up .8s .2s forwards;
+    }
+
+    .hero__titulo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: clamp(5rem, 13vw, 12rem);
+      line-height: .88;
+      color: #fff;
+      letter-spacing: -.025em;
+      opacity: 0;
+      animation: up 1s .4s forwards;
+    }
+
+    .hero__titulo i {
+      display: block;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--oro);
+      font-size: .48em;
+      margin-top: .3em;
+    }
+
+    .hero__bajada {
+      margin-top: 2.5rem;
+      max-width: 480px;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,.55);
+      font-weight: 400;
+      opacity: 0;
+      animation: up .9s .75s forwards;
+    }
+
+    /* barra tricolor */
+    .bandera { display: flex; height: 6px; }
+    .bandera span { flex: 1; }
+    .bandera span:nth-child(1) { background: var(--verde); }
+    .bandera span:nth-child(2) { background: #fff; }
+    .bandera span:nth-child(3) { background: var(--rojo); }
+
+    /* ── SECCIÓN DE TEXTO ─────────────────── */
+    .sec {
+      padding: clamp(5rem, 9vw, 8rem) clamp(2rem, 9vw, 10rem);
+      max-width: 860px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .sec.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    .sec__etiq {
+      font-family: 'Bebas Neue', sans-serif;
+      letter-spacing: .4em;
+      font-size: .8rem;
+      color: var(--rojo);
+      display: flex;
+      align-items: center;
+      gap: .7rem;
+      margin-bottom: 1rem;
+    }
+    .sec__etiq::before {
+      content: '';
+      width: 24px;
+      height: 2px;
+      background: var(--rojo);
+      flex-shrink: 0;
+    }
+
+    .sec h2 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.1;
+      letter-spacing: -.02em;
+      color: var(--cafe);
+      margin-bottom: 2rem;
+    }
+
+    .sec h2 i {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--rojo);
+    }
+
+    .sec p {
+      margin-bottom: 1.4rem;
+      font-weight: 400;
+      color: var(--texto);
+    }
+
+    .sec p:last-child { margin-bottom: 0; }
+
+    /* cita */
+    .cita {
+      margin: 2.8rem 0;
+      padding-left: 2rem;
+      border-left: 3px solid var(--oro);
+    }
+
+    .cita blockquote {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      color: var(--cafe);
+      line-height: 1.5;
+    }
+
+    .cita cite {
+      display: block;
+      margin-top: .8rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-style: normal;
+      font-size: .72rem;
+      letter-spacing: .15em;
+      color: var(--rojo);
+    }
+
+    /* ── IMAGEN ───────────────────────────── */
+    .img {
+      height: clamp(280px, 48vw, 620px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .img__foto {
+      position: absolute;
+      inset: -70px;
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .img__foto::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(12,12,12,.1) 0%,
+        transparent 30%,
+        transparent 65%,
+        rgba(12,12,12,.5) 100%
+      );
+    }
+
+    .img__pie {
+      position: absolute;
+      bottom: 1.3rem;
+      right: 1.8rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: .6rem;
+      letter-spacing: .15em;
+      color: rgba(255,255,255,.45);
+      z-index: 2;
+    }
+
+    /* fotos individuales */
+    .img--1 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1518638150340-f706e86654de?w=1400&q=80');
+    }
+    .img--2 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1547558902-c0e053edd7dd?w=1400&q=80');
+    }
+    .img--3 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1585464231875-d9ef1f5ad396?w=1400&q=80');
+    }
+    .img--4 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1552931136-1bbd64cb5e06?w=1400&q=80');
+    }
+    .img--5 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1518105779142-d975f22f1b0a?w=1400&q=80');
+    }
+    .img--6 .img__foto {
+      background-image: url('https://images.unsplash.com/photo-1569880153113-76e33fc52d5f?w=1400&q=80');
+    }
+
+    /* ── FOOTER ───────────────────────────── */
+    footer {
+      background: var(--cafe);
+      padding: 4rem clamp(2rem, 9vw, 10rem);
+    }
+
+    footer p:first-child {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--oro);
+      letter-spacing: .1em;
+    }
+
+    footer p:last-child {
+      margin-top: .5rem;
+      font-style: italic;
+      font-size: .95rem;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ── ANIMACIÓN ────────────────────────── */
+    @keyframes up {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: none; }
+    }
+
+  </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">MÉXICO</div>
-        <ul class="nav-links">
-            <li><a href="#historia">Historia</a></li>
-            <li><a href="#geografia">Geografía</a></li>
-            <li><a href="#cultura">Cultura</a></li>
-            <li><a href="#gastronomia">Gastronomía</a></li>
-        </ul>
-    </nav>
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero__inner">
+      <p class="hero__sup">Descubre · Explora · Vive</p>
+      <h1 class="hero__titulo">
+        México
+        <i>La Tierra del Sol</i>
+      </h1>
+      <p class="hero__bajada">
+        Un país que conjuga cinco mil años de historia, biodiversidad extraordinaria
+        y una cultura viva que late en cada rincón de su territorio.
+      </p>
+    </div>
+  </header>
+  <div class="bandera"><span></span><span></span><span></span></div>
 
-    <header class="hero">
-        <div class="hero-overlay">
-            <h1>Descubre el Corazón de América</h1>
-            <p>Un viaje por la historia, el sabor y los paisajes de una nación única.</p>
-            <a href="#historia" class="btn-main">Empezar Recorrido</a>
-        </div>
-    </header>
+  <!-- IMAGEN 1 -->
+  <div class="img img--1">
+    <div class="img__foto"></div>
+    <p class="img__pie">Ciudad de México · Zócalo · Capital Federal</p>
+  </div>
 
-    <main>
-        <section id="historia" class="info-section">
-            <div class="container">
-                <div class="text-content">
-                    <span class="step-num">01</span>
-                    <h2>Historia Milenaria</h2>
-                    <p>Desde las colosales cabezas Olmecas hasta el esplendor del Imperio Azteca y la civilización Maya, México es cuna de culturas que dominaron la astronomía y las matemáticas antes de la llegada de Europa.</p>
-                    <p>Hoy, esa herencia vive en nuestras zonas arqueológicas y en el orgullo de nuestra identidad mestiza.</p>
-                </div>
-                <div class="image-content">
-                    <img src="https://images.unsplash.com/photo-1518638150340-f706e86654de?w=800" alt="Chichén Itzá">
-                </div>
-            </div>
-        </section>
+  <!-- SECCIÓN 1 – HISTORIA -->
+  <section class="sec">
+    <p class="sec__etiq">Historia</p>
+    <h2>Cinco mil años de <i>civilización</i></h2>
+    <p>
+      El territorio mexicano fue cuna de algunas de las civilizaciones más brillantes del mundo antiguo.
+      Los olmecas, considerados la «cultura madre» de Mesoamérica, desarrollaron los primeros sistemas
+      de escritura y calendario del continente hace más de tres mil años. Sus enigmáticas cabezas
+      colosales, talladas en basalto, siguen asombrando a los arqueólogos hasta hoy.
+    </p>
+    <p>
+      Los mayas alcanzaron cimas extraordinarias en astronomía, matemáticas y arquitectura. Su calendario
+      de 365 días, el concepto del cero y sus observatorios astronómicos representan una de las
+      contribuciones más importantes de cualquier civilización precolombina al conocimiento humano.
+    </p>
+    <p>
+      Los mexicas fundaron Tenochtitlán en 1325 sobre un lago del altiplano central, creando una de las
+      ciudades más pobladas del mundo medieval, con acueductos, chinampas flotantes y un mercado que
+      deslumbró a los conquistadores españoles por su orden y variedad. Sobre sus ruinas se levantó
+      la actual Ciudad de México.
+    </p>
+    <div class="cita">
+      <blockquote>"México es un país que siempre está naciendo, que nunca termina de nacer."</blockquote>
+      <cite>— Octavio Paz, El laberinto de la soledad</cite>
+    </div>
+    <p>
+      Tras la Conquista española en 1521 y tres siglos de virreinato, México logró su independencia en 1821.
+      La Revolución Mexicana de 1910, primera revolución social del siglo XX, transformó radicalmente
+      el orden político y agrario del país, dando origen a la república federal de 32 estados que existe hoy.
+    </p>
+  </section>
 
-        <section id="geografia" class="info-section reverse">
-            <div class="container">
-                <div class="text-content
+  <!-- IMAGEN 2 -->
+  <div class="img img--2">
+    <div class="img__foto"></div>
+    <p class="img__pie">Teotihuacán · Pirámide del Sol · Estado de México · Patrimonio UNESCO</p>
+  </div>
+
+  <!-- SECCIÓN 2 – GEOGRAFÍA -->
+  <section class="sec">
+    <p class="sec__etiq">Geografía</p>
+    <h2>Un territorio de <i>extremos</i></h2>
+    <p>
+      Con casi dos millones de kilómetros cuadrados, México es el decimocuarto país más grande del mundo
+      y el tercero de América Latina. Su geografía es un espectáculo de contrastes: desiertos áridos
+      en el norte, selvas tropicales en el sur, altas mesetas volcánicas en el centro y costas
+      en dos océanos distintos.
+    </p>
+    <p>
+      El Popocatépetl y el Iztaccíhuatl custodian el Valle de México desde más de cinco mil metros de
+      altura. El Pico de Orizaba, con 5,636 metros, es el tercer volcán más alto de Norteamérica.
+      Al sur, la Selva Lacandona en Chiapas alberga una de las mayores densidades de biodiversidad
+      del planeta.
+    </p>
+    <p>
+      La Baja California encierra el Mar de Cortés, llamado por Jacques Cousteau «el acuario del mundo».
+      México cuenta con más de once mil kilómetros de litoral, entre el Pacífico, el Golfo de México
+      y el Mar Caribe, con arrecifes de coral, manglares y playas que se cuentan entre las más
+      hermosas del mundo.
+    </p>
+  </section>
+
+  <!-- IMAGEN 3 -->
+  <div class="img img--3">
+    <div class="img__foto"></div>
+    <p class="img__pie">Monte Albán · Oaxaca · Fundado hacia 500 a.C.</p>
+  </div>
+
+  <!-- SECCIÓN 3 – CULTURA -->
+  <section class="sec">
+    <p class="sec__etiq">Cultura</p>
+    <h2>Arte y <i>memoria viva</i></h2>
+    <p>
+      México es el país latinoamericano con más Sitios del Patrimonio Mundial de la UNESCO, con 35
+      inscripciones que abarcan zonas arqueológicas prehispánicas, centros históricos coloniales,
+      reservas naturales y expresiones culturales inmateriales como el Día de Muertos y el mariachi.
+    </p>
+    <p>
+      El muralismo mexicano del siglo XX transformó los edificios públicos en monumentos al pueblo.
+      Diego Rivera, José Clemente Orozco y David Alfaro Siqueiros pintaron enormes frescos que narran
+      la historia y el alma de México, creando el movimiento pictórico más influyente del continente.
+    </p>
+    <p>
+      El Día de Muertos, declarado Patrimonio Inmaterial de la Humanidad, fusiona rituales prehispánicos
+      de veneración a los difuntos con el catolicismo. Los altares con flores de cempasúchil, fotografías
+      y objetos del difunto son una de las imágenes más reconocibles de México en el mundo.
+    </p>
+    <p>
+      México reconoce 68 pueblos indígenas con sus propias lenguas y tradiciones. La cerámica talavera,
+      los tapetes zapotecos, el amate nahua y los bordados de Chiapas son tradiciones vivas transmitidas
+      de generación en generación durante cientos de años.
+    </p>
+  </section>
+
+  <!-- IMAGEN 4 -->
+  <div class="img img--4">
+    <div class="img__foto"></div>
+    <p class="img__pie">Cenote Ik Kil · Yucatán · Portal sagrado maya</p>
+  </div>
+
+  <!-- SECCIÓN 4 – GASTRONOMÍA -->
+  <section class="sec">
+    <p class="sec__etiq">Gastronomía</p>
+    <h2>La cocina <i>patrimonio mundial</i></h2>
+    <p>
+      La gastronomía mexicana fue declarada Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO
+      en 2010, siendo la primera cocina nacional del mundo en recibir este reconocimiento. Su base
+      milenaria —el maíz, el chile y el frijol— sustenta una diversidad de sabores que varía
+      radicalmente de región en región.
+    </p>
+    <p>
+      México es el centro de origen del maíz. Con más de 64 razas nativas, el maíz no es solo un
+      ingrediente: es cosmovisión, identidad y sustento de millones. La tortilla, elaborada a mano
+      desde tiempos prehispánicos, es el pan cotidiano de México y la base de incontables platillos.
+    </p>
+    <p>
+      El mole negro de Oaxaca, con más de treinta ingredientes, la cochinita pibil yucateca y los tamales,
+      preparados desde hace cinco mil años, representan la profundidad histórica de esta cocina.
+      El tequila y el mezcal, destilados del agave sagrado, son hoy bebidas con denominación de origen
+      reconocida en todo el mundo.
+    </p>
+  </section>
+
+  <!-- IMAGEN 5 -->
+  <div class="img img--5">
+    <div class="img__foto"></div>
+    <p class="img__pie">Ciudad de México nocturna · 21.6 millones de habitantes</p>
+  </div>
+
+  <!-- SECCIÓN 5 – NATURALEZA -->
+  <section class="sec">
+    <p class="sec__etiq">Naturaleza</p>
+    <h2>Megadiversidad <i>sin fronteras</i></h2>
+    <p>
+      México es uno de los 17 países megadiversos del mundo, albergando el diez por ciento de todas las
+      especies conocidas del planeta en apenas el uno y medio por ciento de la superficie terrestre.
+      Desiertos, selvas, bosques templados, manglares y arrecifes de coral conviven en un mismo territorio.
+    </p>
+    <p>
+      Cada invierno, más de cien millones de mariposas monarca migran desde Canadá para invernar en los
+      bosques de Michoacán, formando uno de los espectáculos naturales más asombrosos del planeta.
+      El Mar de Cortés alberga el 39% de todos los mamíferos marinos del mundo y es el principal sitio
+      de reproducción de la ballena azul.
+    </p>
+    <p>
+      Sus 182 áreas naturales protegidas cubren más de noventa millones de hectáreas, incluyendo reservas
+      de biosfera como Sian Ka'an en Quintana Roo, declarada Patrimonio de la Humanidad por la UNESCO,
+      y la Isla Guadalupe, santuario del gran tiburón blanco.
+    </p>
+  </section>
+
+  <!-- IMAGEN 6 -->
+  <div class="img img--6">
+    <div class="img__foto"></div>
+    <p class="img__pie">Chichén Itzá · Yucatán · Maravilla del Mundo Moderno</p>
+  </div>
+
+  <!-- SECCIÓN 6 – HOY -->
+  <section class="sec">
+    <p class="sec__etiq">México Hoy</p>
+    <h2>Una nación <i>en movimiento</i></h2>
+    <p>
+      Con 130 millones de habitantes distribuidos en 32 estados, México es la undécima economía del mundo
+      y la segunda de América Latina. Su economía combina manufactura, energía, agricultura diversificada
+      y un turismo que recibe más de cuarenta millones de visitantes internacionales al año.
+    </p>
+    <p>
+      La Ciudad de México, con más de 21 millones de habitantes en su zona metropolitana, es uno de los
+      centros culturales más vibrantes del mundo. México fue cuna de premios Nobel como Octavio Paz
+      en Literatura y Mario Molina en Química, y de artistas como Frida Kahlo y Diego Rivera,
+      cuya influencia forma parte del imaginario global.
+    </p>
+    <div class="cita">
+      <blockquote>"Ser mexicano es cargar con el peso de la historia y con la ligereza de saber bailar con ella."</blockquote>
+      <cite>— Dicho popular mexicano</cite>
+    </div>
+    <p>
+      México es hoy un país de contrastes profundos y belleza inagotable: antiguo y contemporáneo,
+      indígena y cosmopolita, desafiante y hospitalario. Un lugar donde el pasado no es arqueología
+      sino vida cotidiana, y donde cada región guarda un mundo propio por descubrir.
+    </p>
+  </section>
+
+  <div class="bandera"><span></span><span></span><span></span></div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>México</p>
+    <p>La Tierra del Sol · República Mexicana · 32 Estados Federales</p>
+  </footer>
+
+  <script>
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.sec').forEach(el => obs.observe(el));
+  </script>
+
+</body>
+</html>
