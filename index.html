@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recursos Naturales & Sectores Económicos</title>
+    <title>Problemas Socioeconómicos de México | GitPages</title>
+    <!-- Fuentes tipográficas -->
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Courier+Prime:wght@400;700&display=swap"
       rel="stylesheet"
@@ -22,6 +23,7 @@
         --fb: "DM Sans", sans-serif;
         --fm: "Courier Prime", monospace;
       }
+
       *,
       *::before,
       *::after {
@@ -29,9 +31,11 @@
         margin: 0;
         padding: 0;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       body {
         font-family: var(--fb);
         font-size: clamp(0.95rem, 1.3vw, 1.05rem);
@@ -41,7 +45,7 @@
         overflow-x: hidden;
       }
 
-      /* GRAIN */
+      /* Efecto de grano sutil */
       body::after {
         content: "";
         position: fixed;
@@ -60,6 +64,7 @@
         position: relative;
         overflow: hidden;
       }
+
       .masthead::before {
         content: "";
         position: absolute;
@@ -72,6 +77,7 @@
           rgba(255, 255, 255, 0.02) 29px
         );
       }
+
       .masthead__kicker {
         font-family: var(--fm);
         font-size: 0.7rem;
@@ -80,6 +86,7 @@
         margin-bottom: 1rem;
         position: relative;
       }
+
       .masthead__title {
         font-family: var(--fd);
         font-size: clamp(2.2rem, 6vw, 4.8rem);
@@ -87,16 +94,19 @@
         color: var(--white);
         position: relative;
       }
+
       .masthead__title i {
         font-style: italic;
         color: var(--ink-20);
       }
+
       .masthead__rule {
         margin: 2rem 0 1.5rem;
         border: none;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         position: relative;
       }
+
       .masthead__sub {
         font-size: 0.82rem;
         color: var(--ink-20);
@@ -116,6 +126,7 @@
         border-bottom: 1px solid #222;
         overflow-x: auto;
       }
+
       .tab-btn {
         font-family: var(--fm);
         font-size: 0.72rem;
@@ -129,9 +140,11 @@
         transition: color 0.2s, border-color 0.2s;
         white-space: nowrap;
       }
+
       .tab-btn:hover {
         color: #aaa;
       }
+
       .tab-btn.active {
         color: #fff;
         border-bottom-color: #fff;
@@ -141,11 +154,12 @@
       .tab-panel {
         display: none;
       }
+
       .tab-panel.active {
         display: block;
       }
 
-      /* BANNER */
+      /* BANNER SECUNDARIO */
       .sec-banner {
         background: var(--ink);
         color: var(--white);
@@ -155,6 +169,7 @@
         gap: 3rem;
         align-items: center;
       }
+
       .sec-banner__num {
         font-family: var(--fd);
         font-size: clamp(5rem, 12vw, 10rem);
@@ -163,6 +178,7 @@
         -webkit-text-stroke: 1px rgba(255, 255, 255, 0.15);
         user-select: none;
       }
+
       .sec-banner__label {
         font-family: var(--fm);
         font-size: 0.68rem;
@@ -170,18 +186,21 @@
         color: var(--ink-20);
         margin-bottom: 0.8rem;
       }
+
       .sec-banner h2 {
         font-family: var(--fd);
         font-size: clamp(1.8rem, 4vw, 3rem);
         line-height: 1.1;
         margin-bottom: 1rem;
       }
+
       .sec-banner p {
         font-size: 0.92rem;
         color: rgba(255, 255, 255, 0.55);
         font-weight: 300;
         max-width: 55ch;
       }
+
       @media (max-width: 700px) {
         .sec-banner {
           grid-template-columns: 1fr;
@@ -191,15 +210,17 @@
         }
       }
 
-      /* ARTICLE */
+      /* ARTÍCULOS */
       .article {
         padding: 5rem clamp(1.5rem, 7vw, 8rem);
         border-bottom: 1px solid var(--ink-10);
         position: relative;
       }
+
       .article:nth-child(even) {
         background: var(--paper2);
       }
+
       .article__tag {
         font-family: var(--fm);
         font-size: 0.63rem;
@@ -210,12 +231,14 @@
         gap: 0.6rem;
         margin-bottom: 1rem;
       }
+
       .article__tag::before {
         content: "";
         width: 20px;
         height: 1px;
         background: var(--ink-40);
       }
+
       .article h3 {
         font-family: var(--fd);
         font-size: clamp(1.6rem, 3.5vw, 2.6rem);
@@ -223,44 +246,53 @@
         color: var(--ink);
         margin-bottom: 2rem;
       }
+
       .article h3 i {
         font-style: italic;
         color: var(--ink-40);
       }
+
       .article__body {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 3.5rem;
         align-items: start;
       }
+
       .article__body--full {
         grid-template-columns: 1fr;
       }
+
       .article__body--rev {
         direction: rtl;
       }
+
       .article__body--rev > * {
         direction: ltr;
       }
+
       @media (max-width: 800px) {
         .article__body {
           grid-template-columns: 1fr;
         }
       }
+
       .article__text p {
         color: var(--ink-60);
         margin-bottom: 1.2rem;
         font-weight: 300;
       }
+
       .article__text p:last-child {
         margin-bottom: 0;
       }
+
       .article__text strong {
         color: var(--ink);
         font-weight: 500;
       }
 
-      /* IMG SLOT */
+      /* IMAGEN PRINCIPAL (slot) */
       .img-slot {
         background: var(--ink-10);
         display: flex;
@@ -272,6 +304,7 @@
         position: relative;
         overflow: hidden;
       }
+
       .img-slot img {
         position: absolute;
         inset: 0;
@@ -280,6 +313,7 @@
         object-fit: cover;
         display: block;
       }
+
       .img-slot__caption {
         font-size: 0.7rem;
         color: var(--white);
@@ -294,22 +328,26 @@
         backdrop-filter: blur(4px);
         z-index: 2;
       }
+
       .img-slot--wide {
         min-height: 320px;
         margin-top: 2.5rem;
       }
+
       .img-slot--side {
         min-height: 300px;
       }
 
-      /* SUBSEC */
+      /* SUBSECCIONES */
       .subsec {
         padding: 3.5rem clamp(1.5rem, 7vw, 8rem);
         border-bottom: 1px solid var(--ink-10);
       }
+
       .subsec:nth-child(even) {
         background: var(--paper2);
       }
+
       .subsec__header {
         display: flex;
         align-items: baseline;
@@ -318,6 +356,7 @@
         border-bottom: 1px solid var(--ink-10);
         padding-bottom: 1rem;
       }
+
       .subsec__num {
         font-family: var(--fm);
         font-size: 0.66rem;
@@ -325,22 +364,26 @@
         color: var(--ink-40);
         flex-shrink: 0;
       }
+
       .subsec h4 {
         font-family: var(--fd);
         font-size: clamp(1.2rem, 2.5vw, 1.8rem);
         color: var(--ink);
       }
+
       .subsec__grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 2.5rem;
         align-items: start;
       }
+
       @media (max-width: 700px) {
         .subsec__grid {
           grid-template-columns: 1fr;
         }
       }
+
       .subsec p {
         font-size: 0.92rem;
         color: var(--ink-60);
@@ -349,12 +392,13 @@
         line-height: 1.7;
       }
 
-      /* PULL QUOTE */
+      /* CITA DESTACADA */
       .pull-quote {
         border-left: 3px solid var(--ink);
         padding: 1.2rem 2rem;
         margin: 2.5rem 0;
       }
+
       .pull-quote p {
         font-family: var(--fd);
         font-style: italic;
@@ -364,12 +408,13 @@
         margin: 0;
       }
 
-      /* REFERENCES */
+      /* REFERENCIAS */
       .references {
         background: var(--ink);
         color: var(--white);
         padding: 4rem clamp(1.5rem, 7vw, 8rem);
       }
+
       .references__title {
         font-family: var(--fm);
         font-size: 0.68rem;
@@ -377,10 +422,12 @@
         color: var(--ink-20);
         margin-bottom: 2rem;
       }
+
       .references ol {
         list-style: decimal;
         padding-left: 1.5rem;
       }
+
       .references li {
         font-size: 0.82rem;
         font-weight: 300;
@@ -388,9 +435,30 @@
         margin-bottom: 0.8rem;
         line-height: 1.6;
       }
+
       .references li strong {
         color: rgba(255, 255, 255, 0.82);
         font-weight: 400;
+      }
+
+      /* DATOS PERSONALES */
+      .personal-data {
+        background: #e7f1ff;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        text-align: left;
+      }
+
+      .personal-data h2 {
+        font-family: var(--fd);
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .personal-data p {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
       }
 
       /* FOOTER */
@@ -404,6 +472,7 @@
         gap: 1rem;
         border-top: 1px solid #222;
       }
+
       footer p {
         font-family: var(--fm);
         font-size: 0.62rem;
@@ -411,12 +480,13 @@
         color: #555;
       }
 
-      /* FADE */
+      /* ANIMACIÓN DE ENTRADA */
       .fade {
         opacity: 0;
         transform: translateY(22px);
         transition: opacity 0.65s ease, transform 0.65s ease;
       }
+
       .fade.in {
         opacity: 1;
         transform: none;
@@ -426,15 +496,14 @@
   <body>
     <!-- MASTHEAD -->
     <header class="masthead">
-      <p class="masthead__kicker">
-        Primer Parcial · Subcompetencias I &amp; II
-      </p>
+      <p class="masthead__kicker">Proyecto Escolar · Subcompetencias I–IV</p>
       <h1 class="masthead__title">
-        Recursos Naturales<br /><i>&amp; Sectores Económicos</i>
+        Problemas Socioeconómicos<br /><i>de México</i>
       </h1>
       <hr class="masthead__rule" />
       <p class="masthead__sub">
-        Economía y Sociedad · Ingeniería · Primer Semestre
+        Recursos naturales, sectores económicos, comercio exterior y marco
+        político
       </p>
     </header>
 
@@ -446,11 +515,17 @@
       <button class="tab-btn" data-tab="t2" role="tab">
         02 — Sectores Económicos
       </button>
+      <button class="tab-btn" data-tab="t3" role="tab">
+        03 — Comercio & Finanzas
+      </button>
+      <button class="tab-btn" data-tab="t4" role="tab">
+        04 — Marco Político
+      </button>
     </nav>
 
     <!-- ══════════════════════════════════════
      PESTAÑA 1 – RECURSOS NATURALES
-══════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <div id="t1" class="tab-panel active">
       <div class="sec-banner fade">
         <div>
@@ -475,22 +550,16 @@
               Los <strong>recursos renovables</strong> son aquellos que pueden
               regenerarse de manera natural en lapsos relativamente cortos,
               siempre que su extracción no supere la tasa de renovación del
-              ecosistema. Entre los más importantes para México se encuentran el
-              agua, los bosques, la energía solar, la eólica, la geotérmica y la
-              biomasa.
+              ecosistema. México cuenta con un potencial enorme: irradiación
+              solar promedio de 5.5 kWh/m²/día, vientos excepcionales en el
+              Istmo de Tehuantepec, 49 ríos principales y 653 acuíferos.
             </p>
             <p>
-              México posee un potencial renovable extraordinario: recibe entre
-              4.4 y 6.3 kWh/m²/día de irradiación solar, superando a la mayoría
-              de los países europeos líderes en esta tecnología. El Istmo de
-              Tehuantepec concentra uno de los mejores recursos eólicos del
-              mundo.
-            </p>
-            <p>
-              La <strong>Ley de Transición Energética</strong> y el compromiso
-              ante el Acuerdo de París establecen que México debe alcanzar el
-              35% de generación eléctrica mediante fuentes limpias para 2024 y
-              el 43% para 2030.
+              La <strong>Ley de Transición Energética</strong> compromete al
+              país a generar el 35% de electricidad con fuentes limpias para
+              2024 y el 43% para 2030. La energía solar y eólica han sido las de
+              mayor crecimiento, mientras que la geotermia (Campo Geotérmico de
+              Cerro Prieto) es una de las más grandes del mundo.
             </p>
             <div class="pull-quote">
               <p>
@@ -500,13 +569,13 @@
             </div>
           </div>
           <div class="img-slot img-slot--side">
+            <!-- REEMPLAZA EL SRC CON TU IMAGEN -->
             <img
-              src="https://images.unsplash.com/photo-1594050157186-4d2a5dc0c990?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Parque eólico con turbinas de viento en paisaje verde"
-              loading="lazy"
+              src="https://www.enelgreenpower.com/content/dam/enel-egp/immagini/flagship-plants/dolores/dolores_social_1200x630.jpg"
+              alt="Parque eólico en México, energía renovable"
             />
             <span class="img-slot__caption"
-              >Energía eólica — fuente renovable clave para México</span
+              >Energía eólica — recurso renovable clave para México</span
             >
           </div>
         </div>
@@ -521,34 +590,27 @@
             <p>
               Los <strong>recursos no renovables</strong> se forman en escalas
               geológicas de millones de años; una vez explotados, no pueden
-              reponerse en tiempos humanos. Los hidrocarburos (petróleo y gas
-              natural) y los minerales metálicos y no metálicos son los más
-              relevantes para la economía mexicana.
+              reponerse en tiempos humanos. El petróleo y el gas natural han
+              sido pilares económicos de México desde principios del siglo XX.
             </p>
             <p>
-              El <strong>petróleo</strong> ha sido el pilar de las finanzas
-              públicas durante décadas. La producción de PEMEX cayó de su pico
-              de 3.4 millones de barriles diarios en 2004 a menos de 1.9
-              millones actualmente, evidenciando el agotamiento de yacimientos
-              convencionales.
+              La producción de PEMEX cayó de 3.4 millones de barriles diarios en
+              2004 a menos de 1.9 millones en 2023. En minería, México es el
+              <strong>mayor productor mundial de plata</strong> y líder en zinc,
+              cobre y fluorita.
             </p>
             <p>
-              En minería, México es el
-              <strong>mayor productor mundial de plata</strong> y un importante
-              productor de zinc, cobre, oro y fluorita. La normativa ambiental
-              busca equilibrar el aprovechamiento económico con la protección de
-              comunidades y ecosistemas.
+              Fuente: PEMEX, Anuario Estadístico 2023; INEGI, Estadísticas
+              mineras 2022.
             </p>
           </div>
           <div class="img-slot img-slot--side">
             <img
-              src="https://images.unsplash.com/photo-1523848309072-c199db53f137?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Minería a cielo abierto, extracción de minerales"
-              loading="lazy"
+              src="https://cdn.milenio.com/uploads/media/2024/01/31/plataforma-petrolera-de-pemex-foto.jpg"
+              alt="Plataforma petrolera o extracción minera en México"
             />
             <span class="img-slot__caption"
-              >Minería a cielo abierto — México, mayor productor mundial de
-              plata</span
+              >Petróleo y minería — recursos no renovables estratégicos</span
             >
           </div>
         </div>
@@ -561,44 +623,36 @@
         <div class="article__body">
           <div class="article__text">
             <p>
-              México enfrenta graves desafíos ambientales derivados del
-              crecimiento demográfico, la industrialización y el uso
-              insustentable de recursos. Los principales son la
-              <strong>deforestación</strong>, la contaminación del agua y el
-              aire, la pérdida de biodiversidad y el cambio climático.
+              México enfrenta graves desafíos ambientales:
+              <strong>deforestación</strong> (~155,000 ha/año), contaminación
+              atmosférica en zonas metropolitanas, sobreexplotación de acuíferos
+              y manejo inadecuado de residuos. La SEMARNAT reporta que más del
+              70% de los ríos presentan algún grado de contaminación.
             </p>
             <p>
-              La <strong>deforestación</strong> afecta aproximadamente 155,000
-              hectáreas por año (SEMARNAT). Las causas principales son la
-              expansión agrícola, la tala clandestina y los incendios
-              forestales. La pérdida de bosques reduce la captura de carbono y
-              altera el ciclo hidrológico.
+              El cambio climático incrementa la frecuencia de huracanes, sequías
+              e inundaciones, afectando la seguridad alimentaria e hídrica del
+              país.
             </p>
             <p>
-              La <strong>contaminación atmosférica</strong> en zonas como el
-              Valle de México genera problemas graves de salud pública. El
-              cambio climático incrementa la frecuencia e intensidad de
-              huracanes, sequías e inundaciones, amenazando la seguridad
-              alimentaria e hídrica del país.
+              Fuente: SEMARNAT, Informe de la Situación del Medio Ambiente 2023;
+              CONAGUA.
             </p>
           </div>
           <div class="img-slot img-slot--side">
             <img
-              src="https://www.codicemx.org/storage/articulos/imagen_interior_1606754437."
-              alt="Deforestación y daño ambiental en bosque tropical"
-              loading="lazy"
+              src="https://www.greenpeace.org/static/planet4-mexico-stateless/2025/05/38e660ee-gp1ta6ez.jpg"
+              alt="Contaminación o deforestación en México"
             />
             <span class="img-slot__caption"
-              >Deforestación — 155,000 hectáreas perdidas por año en
-              México</span
+              >Deforestación — 155,000 hectáreas perdidas por año</span
             >
           </div>
         </div>
         <div class="img-slot img-slot--wide fade">
           <img
-            src="https://cdn-3.expansion.mx/dims4/default/63dffe0/2147483647/strip/true/crop/3705x2258+0+0/resize/1800x1097!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fa5%2F32%2Ff59cc8524e59a94b698575d6a36f%2Fcalidad-aire-5.jpg"
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTsfWLAI4krLzh-d3PiriwWyAe7A9uogAFxA&s"
             alt="Contaminación atmosférica en ciudad mexicana"
-            loading="lazy"
           />
           <span class="img-slot__caption"
             >Contaminación atmosférica urbana — impacto ambiental en
@@ -615,24 +669,21 @@
           <div class="article__text">
             <p>
               México cuenta con más de
-              <strong>130 millones de habitantes</strong>, distribuidos en 32
-              entidades federativas. La concentración urbana es marcada: la Zona
-              Metropolitana del Valle de México alberga más de 21 millones de
-              personas. La distribución desigual de la riqueza genera profundas
-              disparidades que se expresan en pobreza, desempleo y una extensa
-              economía informal.
+              <strong>130 millones de habitantes</strong>. La distribución es
+              muy desigual: la Zona Metropolitana del Valle de México concentra
+              más de 21 millones. Las profundas disparidades generan pobreza,
+              desempleo y una extensa economía informal.
             </p>
           </div>
         </div>
         <div class="img-slot img-slot--wide fade">
           <img
-            src="https://media.traveler.es/photos/61377978030de94d067fdbdb/master/pass/101122.jpg"
-            alt="Calle concurrida en Ciudad de México con población urbana"
-            loading="lazy"
+            src="https://www.jornada.com.mx/ndjsimg/images/jornada/jornadaimg/buscan-desarrollar-18-estrategias-en-el-centro-historico-de-aqui-a-2028-4012/buscan-desarrollar-18-estrategias-en-el-centro-historico-de-aqui-a-2028-4012html-centro-historicojpg-5514html-2c358ea4-6573-48d5-821c-9d5f5f47c812.jpgljnimgndimage=fullsize"
+            alt="Multitud en la Ciudad de México, zona urbana densa"
           />
           <span class="img-slot__caption"
-            >Ciudad de México — más de 21 millones de habitantes en su zona
-            metropolitana</span
+            >Zona Metropolitana del Valle de México — más de 21 millones de
+            personas</span
           >
         </div>
       </section>
@@ -647,27 +698,24 @@
           <div>
             <p>
               Según el <strong>CONEVAL</strong>, en 2022 el 36.3% de la
-              población (46.8 millones de personas) se encontraba en situación
-              de pobreza, y el 7.1% en pobreza extrema. Las carencias más
-              recurrentes son el acceso a seguridad social, servicios de salud y
-              alimentación nutritiva.
+              población (46.8 millones) vivía en pobreza multidimensional y el
+              7.1% en pobreza extrema. Las carencias más comunes son acceso a
+              seguridad social, servicios de salud y alimentación.
             </p>
             <p>
-              La pobreza es significativamente mayor en estados del sur:
-              Chiapas, Guerrero y Oaxaca presentan tasas superiores al 60%.
-              Entre sus causas estructurales se encuentran la desigualdad en el
-              ingreso, la baja productividad rural, el rezago educativo y la
-              corrupción institucional.
+              Los estados del sur (Chiapas, Guerrero, Oaxaca) presentan las
+              tasas más altas. La desigualdad estructural de ingresos, el rezago
+              educativo y la baja productividad rural son causas centrales.
             </p>
+            <p>Fuente: CONEVAL, Medición de pobreza 2022.</p>
           </div>
           <div class="img-slot">
             <img
-              src="https://movimientoantorchista.org.mx/uploads/images/image_750x422_6507391b6750c.jpg"
-              alt="Comunidad en condiciones de pobreza, zona marginal"
-              loading="lazy"
+              src="https://buzos.com.mx/storage/public/fotogaleria/noticias/Importacion/5370/pobrezamex.jpg"
+              alt="Comunidad en condiciones de pobreza en México"
             />
             <span class="img-slot__caption"
-              >36.3% de la población mexicana en situación de pobreza (CONEVAL,
+              >36.3% de la población en situación de pobreza (CONEVAL,
               2022)</span
             >
           </div>
@@ -683,29 +731,27 @@
         <div class="subsec__grid">
           <div>
             <p>
-              La <strong>Tasa de Desocupación</strong> en México ha oscilado
-              entre 3% y 5% de la Población Económicamente Activa (PEA), según
-              el INEGI. Sin embargo, esta cifra no refleja la subocupación ni a
-              quienes abandonaron la búsqueda de empleo. El desempleo juvenil
-              duplica o triplica el promedio nacional.
+              La tasa de desocupación nacional ha oscilado entre 2.8% y 5% de la
+              PEA (INEGI, ENOE 2023). Sin embargo, la subocupación y el abandono
+              de la búsqueda de empleo ocultan una realidad más compleja. El
+              desempleo juvenil duplica o triplica el promedio.
             </p>
             <p>
-              La pandemia de COVID-19 eliminó más de
-              <strong>12 millones de empleos formales</strong> en 2020,
-              recuperados en gran medida en 2021–2022. El rezago educativo y la
-              falta de capacitación técnica son barreras estructurales para la
-              inserción laboral de calidad.
+              La informalidad laboral afecta al 54.8% de la población ocupada,
+              reflejando precariedad y falta de acceso a prestaciones.
+            </p>
+            <p>
+              Fuente: INEGI, Encuesta Nacional de Ocupación y Empleo (ENOE),
+              cierre 2023.
             </p>
           </div>
           <div class="img-slot">
             <img
-              src="https://elinformante.mx/wp-content/uploads/2024/06/12DESEMPLEO.jpg"
-              alt="Trabajadores en búsqueda de empleo, mercado laboral"
-              loading="lazy"
+              src="https://revistafortuna.com.mx/wp-content/uploads/2021/05/DESEMPLEO-adrian-vazquez-4.jpg"
+              alt="Personas buscando empleo en México"
             />
             <span class="img-slot__caption"
-              >Desempleo juvenil — el doble del promedio nacional según
-              INEGI</span
+              >Desempleo juvenil — el doble del promedio nacional</span
             >
           </div>
         </div>
@@ -720,29 +766,25 @@
         <div class="subsec__grid">
           <div>
             <p>
-              La <strong>economía informal</strong> en México es una de las más
-              grandes del mundo: el 55–60% de la fuerza laboral trabaja sin
-              contrato formal, seguridad social ni protecciones laborales. El
-              sector informal aporta aproximadamente el
-              <strong>23% del PIB</strong> nacional.
+              La economía informal en México abarca al 55–60% de la fuerza
+              laboral y contribuye con aproximadamente el 23% del PIB (INEGI,
+              2022). Incluye comercio ambulante, servicios domésticos,
+              microempresas no registradas y producción artesanal.
             </p>
             <p>
-              El comercio ambulante, los servicios domésticos, la producción
-              artesanal y las microempresas sin registro fiscal son sus
-              expresiones más visibles. La informalidad perpetúa ciclos de
-              pobreza al impedir el ahorro, el acceso al crédito y la
-              acumulación de derechos de pensión.
+              La informalidad perpetúa ciclos de pobreza al excluir a los
+              trabajadores de la seguridad social, el ahorro para el retiro y el
+              acceso al crédito formal.
             </p>
+            <p>Fuente: INEGI, Medición de la Economía Informal, 2022.</p>
           </div>
           <div class="img-slot">
             <img
-              src="https://reformalaboralparatodos.org.mx/wp-content/uploads/2022/01/trabajadores-s.jpg"
-              alt="Tianguis o mercado informal en México, comercio ambulante"
-              loading="lazy"
+              src="https://cdn.milenio.com/uploads/media/2025/09/20/comerciantes-tianguis-puebla-revelan-amenazados_63_0_1074_678.jpg"
+              alt="Comercio ambulante o tianguis en México"
             />
             <span class="img-slot__caption"
-              >Mercado informal — 55-60% de la fuerza laboral en el sector
-              informal</span
+              >Tianguis — 55% de la fuerza laboral en el sector informal</span
             >
           </div>
         </div>
@@ -752,56 +794,42 @@
         <p class="references__title">REFERENCIAS — RECURSOS NATURALES</p>
         <ol>
           <li>
-            <strong>SEMARNAT.</strong> (2023).
-            <em>Informe de la Situación del Medio Ambiente en México.</em>
-            Secretaría de Medio Ambiente y Recursos Naturales. Ciudad de México.
+            <strong>SENER.</strong> (2024). Programa de Desarrollo del Sistema
+            Eléctrico Nacional 2024-2038.
+          </li>
+          <li><strong>PEMEX.</strong> (2023). Anuario Estadístico 2023.</li>
+          <li><strong>INEGI.</strong> (2022). Estadísticas mineras.</li>
+          <li>
+            <strong>SEMARNAT.</strong> (2023). Informe de la Situación del Medio
+            Ambiente en México.
           </li>
           <li>
-            <strong>CONEVAL.</strong> (2023).
-            <em>Medición de la Pobreza 2022.</em> Consejo Nacional de Evaluación
-            de la Política de Desarrollo Social. https://www.coneval.org.mx
+            <strong>CONAGUA.</strong> (2022). Estadísticas del Agua en México.
+          </li>
+          <li><strong>CONEVAL.</strong> (2022). Medición de pobreza 2022.</li>
+          <li>
+            <strong>INEGI.</strong> (2023). Encuesta Nacional de Ocupación y
+            Empleo (ENOE).
           </li>
           <li>
-            <strong>INEGI.</strong> (2023).
-            <em>Encuesta Nacional de Ocupación y Empleo (ENOE).</em> Instituto
-            Nacional de Estadística y Geografía. https://www.inegi.org.mx
-          </li>
-          <li>
-            <strong>SENER.</strong> (2022).
-            <em>Prospectiva de Energías Renovables 2022–2036.</em> Secretaría de
-            Energía. Ciudad de México.
-          </li>
-          <li>
-            <strong>Leff, E.</strong> (2004).
-            <em
-              >Racionalidad Ambiental: la reapropiación social de la
-              naturaleza.</em
-            >
-            Siglo XXI Editores. México.
-          </li>
-          <li>
-            <strong>OIT.</strong> (2022).
-            <em>Panorama Laboral 2022: América Latina y el Caribe.</em>
-            Organización Internacional del Trabajo. Ginebra.
+            <strong>INEGI.</strong> (2022). Medición de la Economía Informal.
           </li>
         </ol>
       </div>
     </div>
-    <!-- /t1 -->
 
     <!-- ══════════════════════════════════════
      PESTAÑA 2 – SECTORES ECONÓMICOS
-══════════════════════════════════════ -->
+    ══════════════════════════════════════ -->
     <div id="t2" class="tab-panel">
       <div class="sec-banner fade">
         <div>
           <p class="sec-banner__label">Subcompetencia II</p>
           <h2>Sectores Económicos</h2>
           <p>
-            Los sectores económicos articulan las necesidades básicas de la
-            sociedad con las capacidades productivas del país. Comprender su
-            estructura y rezagos es clave para proponer soluciones de ingeniería
-            orientadas al desarrollo nacional.
+            Los sectores económicos articulan las necesidades básicas con las
+            capacidades productivas del país. Comprender su estructura y rezagos
+            es clave para un desarrollo nacional equilibrado.
           </p>
         </div>
         <div class="sec-banner__num" aria-hidden="true">02</div>
@@ -814,36 +842,27 @@
         <div class="article__body">
           <div class="article__text">
             <p>
-              El sector agropecuario representa aproximadamente el
-              <strong>3.5% del PIB</strong> nacional y emplea cerca del 12% de
-              la población ocupada. México es el decimoquinto exportador
-              agropecuario mundial, con aguacate, tomate, cítricos, tequila y
-              cerveza entre sus productos de exportación más relevantes.
+              El sector primario aporta el 3.5% del PIB y emplea al 12% de la
+              población ocupada. México es líder en exportación de aguacate,
+              tomate, cítricos y cerveza. Sin embargo, coexisten grandes
+              agroindustrias tecnificadas con millones de pequeños productores
+              de temporal sin acceso a crédito.
             </p>
             <p>
-              Sin embargo, el sector enfrenta profundas desigualdades: las
-              grandes agroindustrias de Sonora y Sinaloa operan con tecnología
-              de punta, mientras millones de
-              <strong>pequeños productores</strong> en el sur subsisten con
-              agricultura de temporal, sin acceso a crédito ni mercados
-              formales.
+              Los retos incluyen degradación del suelo, escasez de agua para
+              riego, cambio climático y competencia de importaciones. Programas
+              como Sembrando Vida buscan impulsar la producción sustentable y el
+              arraigo rural.
             </p>
-            <p>
-              Los retos incluyen la degradación del suelo, la escasez de agua
-              para riego, el cambio climático y la competencia de productos
-              importados. La SADER impulsa programas de modernización del campo
-              con enfoque de sustentabilidad.
-            </p>
+            <p>Fuente: SADER, 5° Informe de Labores 2023; SIAP.</p>
           </div>
           <div class="img-slot img-slot--side">
             <img
-              src="https://cdn.bmeditores.mx/2022/08/desarrollo-agropecuario-y-rural-milpa-alta.jpg"
-              alt="Campos de cultivo agrícola"
-              loading="lazy"
+              src="https://cdn.milenio.com/uploads/media/2019/10/11/campo-mexicano.jpg"
+              alt="Campo agrícola en México, cultivos"
             />
             <span class="img-slot__caption"
-              >Sector agropecuario — 3.5% del PIB y 12% del empleo
-              nacional</span
+              >Sector agropecuario — 3.5% del PIB, 12% del empleo</span
             >
           </div>
         </div>
@@ -856,36 +875,28 @@
         <div class="article__body article__body--rev">
           <div class="article__text">
             <p>
-              El sector industrial aporta aproximadamente el
-              <strong>27% del PIB</strong> y es el principal motor de
-              exportaciones. La manufactura automotriz, electrónica,
-              aeroespacial, química y alimentaria concentra las actividades de
-              mayor valor agregado en el país.
+              La industria manufacturera representa el 18.5% del PIB y es el
+              principal motor exportador. México es el séptimo productor
+              automotriz mundial y el cuarto exportador, con plantas de GM,
+              Volkswagen, Nissan, BMW y Toyota. El corredor del Bajío es uno de
+              los más dinámicos de América Latina.
             </p>
             <p>
-              México es el
-              <strong>séptimo productor mundial de automóviles</strong> y el
-              cuarto exportador, con plantas de GM, Volkswagen, Nissan, BMW y
-              Toyota en Guanajuato, Puebla, Nuevo León y Coahuila. El corredor
-              industrial del Bajío es uno de los más dinámicos de América
-              Latina.
+              El <strong>T-MEC</strong> regula la mayor parte del intercambio
+              industrial. Las exportaciones manufactureras superaron los 400,000
+              millones de dólares en 2022, el 80% del total. La relocalización
+              de cadenas (nearshoring) ha atraído inversión extranjera directa
+              récord.
             </p>
-            <p>
-              El <strong>T-MEC</strong> (México–EUA–Canadá) es el marco
-              comercial que regula la mayor parte del intercambio industrial.
-              Las exportaciones manufactureras superaron los 400,000 millones de
-              dólares en 2022, representando el 80% del total exportado.
-            </p>
+            <p>Fuente: INEGI, PIB por sector 2023; Secretaría de Economía.</p>
           </div>
           <div class="img-slot img-slot--side">
             <img
-              src="https://mexicoindustry.com/admin/images/notas/2024/10/baja-california-lidero-crecimiento-industrial-en-mexico-al-cierre-del-primer-semestre-2024-25445.jpg"
-              alt="Planta industrial manufacturera"
-              loading="lazy"
+              src="https://cdn.forbes.com.mx/2016/11/ClusterEdoMex1-e1479159471781.jpg"
+              alt="Fábrica automotriz en México, línea de producción"
             />
             <span class="img-slot__caption"
-              >Industria manufacturera — 7.º productor mundial de
-              automóviles</span
+              >Industria automotriz — 7.º productor mundial</span
             >
           </div>
         </div>
@@ -898,25 +909,20 @@
         <div class="article__body article__body--full">
           <div class="article__text">
             <p>
-              El sector terciario aporta cerca del
-              <strong>60–65% del PIB</strong> y es el más grande de la economía
-              mexicana. Incluye comercio, turismo, servicios financieros,
-              transporte, telecomunicaciones, educación, salud y servicios
-              gubernamentales. Su crecimiento refleja la transición de México
-              hacia una economía más urbanizada y orientada al conocimiento y
-              los servicios.
+              El sector terciario aporta más del 60% del PIB e incluye comercio,
+              turismo, finanzas, transporte, telecomunicaciones, educación y
+              salud. Su crecimiento refleja la transición hacia una economía
+              urbanizada y orientada al conocimiento.
             </p>
           </div>
         </div>
         <div class="img-slot img-slot--wide fade">
           <img
-            src="https://images.unsplash.com/photo-1485083269755-a7b559a4fe5e?w=1200&q=80"
-            alt="Skyline de ciudad moderna con edificios de servicios financieros"
-            loading="lazy"
+            src="https://cdn-3.expansion.mx/dims4/default/e5a4ff2/2147483647/strip/true/crop/4048x2272+0+0/resize/1200x674!/format/webp/quality/80/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F39%2F17%2Ff90b45934c5882dd907175db6363%2Fistock-1163815958.jpg"
+            alt="Skyline de la Ciudad de México con edificios financieros"
           />
           <span class="img-slot__caption"
-            >Sector servicios — 60-65% del PIB nacional, el mayor sector de la
-            economía</span
+            >Sector servicios — 60-65% del PIB nacional</span
           >
         </div>
       </section>
@@ -930,29 +936,20 @@
         <div class="subsec__grid">
           <div>
             <p>
-              México cuenta con una red multimodal: más de
-              <strong>398,000 km de carreteras</strong>, 26,700 km de vías
-              férreas, 70 aeropuertos internacionales y 117 puertos marítimos.
-              El transporte carretero moviliza el 55% de la carga y el 97% de
-              los pasajeros.
+              México cuenta con más de 398,000 km de carreteras, 26,700 km de
+              vías férreas, 70 aeropuertos internacionales y 117 puertos. El
+              transporte carretero moviliza el 55% de la carga y el 97% de los
+              pasajeros. Proyectos como el Tren Maya y el Corredor Interoceánico
+              buscan detonar el desarrollo regional.
             </p>
-            <p>
-              Los proyectos del <strong>Tren Maya</strong> y el Corredor
-              Interoceánico del Istmo de Tehuantepec buscan ampliar la
-              conectividad y detonar el desarrollo regional en el sur del país,
-              históricamente rezagado en infraestructura.
-            </p>
+            <p>Fuente: SICT, Estadísticas del Sector 2022.</p>
           </div>
           <div class="img-slot">
             <img
-              src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?w=800&q=80"
-              alt="Autopista moderna con múltiples carriles y vehículos"
-              loading="lazy"
+              src="https://enfoquenoticias.com.mx/wp-content/uploads/2023/04/mexpue.jpg"
+              alt="Autopista moderna o tren en México"
             />
-            <span class="img-slot__caption"
-              >Red carretera — 398,000 km que movilizan el 97% de los
-              pasajeros</span
-            >
+            <span class="img-slot__caption">Red carretera — 398,000 km</span>
           </div>
         </div>
       </div>
@@ -966,26 +963,21 @@
         <div class="subsec__grid">
           <div>
             <p>
-              El sector está regulado por el
-              <strong>Instituto Federal de Telecomunicaciones (IFT)</strong>
-              desde la reforma constitucional de 2013. En 2022, el 52% de los
-              hogares tenía acceso a internet (28% en zonas rurales). La
-              cobertura de telefonía móvil alcanza al 90% de la población.
+              El 78% de la población tiene acceso a internet móvil (IFT, 2023).
+              Aún existe una brecha importante entre zonas urbanas y rurales. El
+              despliegue de redes 5G y fibra óptica es prioritario para la
+              transformación digital, la educación a distancia y la industria
+              4.0.
             </p>
-            <p>
-              El despliegue de redes <strong>5G</strong> y la expansión de fibra
-              óptica son prioritarios para el desarrollo digital, con impacto
-              directo en educación a distancia, telemedicina, industria 4.0 y
-              gobierno electrónico.
-            </p>
+            <p>Fuente: IFT, Anuario Estadístico 2022.</p>
           </div>
           <div class="img-slot">
             <img
-            src="https://esemanal.mx/revista/wp-content/uploads/2019/01/ciu.jpg"
-            alt="Antena de telecomunicaciones 5G en entorno moderno"
-            loading="lazy" />
+              src="https://cloudfront-us-east-1.images.arcpublishing.com/elfinanciero/U4SE2DG3NVCCHLYFM5MOSLHO3A.jpg"
+              alt="Antenas de telecomunicaciones o fibra óptica"
+            />
             <span class="img-slot__caption"
-              >Redes 5G — clave para la transformación digital de México</span
+              >Redes 5G — clave para el desarrollo digital</span
             >
           </div>
         </div>
@@ -1000,30 +992,21 @@
         <div class="subsec__grid">
           <div>
             <p>
-              El rezago habitacional afecta a más de
-              <strong>9 millones de hogares</strong> (CONAVI), incluyendo
-              viviendas con hacinamiento, materiales inadecuados o carentes de
-              servicios. El INFONAVIT otorgó más de 500,000 créditos en 2022,
-              pero los trabajadores informales —55% de la PEA— quedan excluidos
-              del financiamiento formal.
+              El rezago habitacional afecta a más de 9 millones de hogares
+              (CONAVI). El INFONAVIT otorgó más de 500,000 créditos en 2022,
+              pero los trabajadores informales quedan excluidos. La
+              densificación urbana y la construcción resiliente son desafíos
+              prioritarios.
             </p>
-            <p>
-              El reto también incluye la
-              <strong>densificación urbana</strong> para contener la expansión
-              desordenada y la construcción resiliente ante sismos, huracanes e
-              inundaciones, dado el contexto de vulnerabilidad geográfica de
-              México.
-            </p>
+            <p>Fuente: CONAVI, Rezago Habitacional 2022.</p>
           </div>
           <div class="img-slot">
             <img
-              src="https://revisionesgdl.com/wp-content/uploads/2025/04/unidad-ctm-9.jpg"
-              alt="Unidad habitacional y vivienda social en desarrollo urbano"
-              loading="lazy"
+              src="https://quintanaroohoy.com/wp-content/uploads/2024/07/CASAS-INFONAVIT.jpg"
+              alt="Unidad habitacional en México, vivienda social"
             />
             <span class="img-slot__caption"
-              >Rezago habitacional — más de 9 millones de hogares afectados
-              (CONAVI)</span
+              >Rezago habitacional — 9 millones de hogares</span
             >
           </div>
         </div>
@@ -1038,30 +1021,20 @@
         <div class="subsec__grid">
           <div>
             <p>
-              El acceso al agua es un
-              <strong>derecho constitucional</strong> desde 2012. La cobertura
-              de agua entubada alcanza al 93% en zonas urbanas y al 67% en
-              rurales. Solo el
-              <strong>40% de las aguas residuales</strong> recibe tratamiento
-              antes de su descarga, generando contaminación severa en cuencas
-              como el Lerma–Santiago y el Balsas.
+              El 94.5% de la población tiene acceso a agua entubada, pero solo
+              el 58% dispone de agua diariamente (ENIGH 2022). Las pérdidas por
+              fugas alcanzan el 40%. De los 653 acuíferos, 157 están
+              sobreexplotados.
             </p>
-            <p>
-              De los 653 acuíferos del país,
-              <strong>157 están sobreexplotados</strong>, incluyendo los que
-              abastecen a las zonas metropolitanas más densas. La gestión
-              integrada de cuencas y la Ley de Aguas Nacionales son los
-              instrumentos centrales de la política hídrica.
-            </p>
+            <p>Fuente: CONAGUA, Estadísticas del Agua 2022.</p>
           </div>
           <div class="img-slot">
             <img
-              src="https://enfoquenoticias.com.mx/wp-content/uploads/2024/05/plantas-potabilizadoras.png"
-              alt="Planta potabilizadora y tratamiento de agua"
-              loading="lazy"
+              src="https://www.gob.mx/cms/uploads/image/file/267694/0JCV0040_ElCreston.jpg"
+              alt="Planta potabilizadora o red de agua potable"
             />
             <span class="img-slot__caption"
-              >Gestión hídrica — 157 acuíferos sobreexplotados en México</span
+              >157 acuíferos sobreexplotados en México</span
             >
           </div>
         </div>
@@ -1074,118 +1047,409 @@
         <div class="article__body">
           <div class="article__text">
             <p>
-              El sistema educativo nacional atiende a más de
-              <strong>36 millones de estudiantes</strong> en educación básica,
-              con cobertura del 97% en primaria. Sin embargo, persisten desafíos
-              de calidad, pertinencia y equidad que limitan el potencial
-              transformador de la educación.
+              El sistema educativo atiende a más de 36 millones de estudiantes,
+              con cobertura del 97% en primaria. Sin embargo, los resultados de
+              PISA 2022 ubican a México por debajo del promedio OCDE. La
+              educación superior tiene una cobertura bruta del 42%.
             </p>
             <p>
-              Los resultados de <strong>PISA 2022</strong> ubican a México por
-              debajo del promedio OCDE en matemáticas, lectura y ciencias, con
-              mayor rezago en comunidades indígenas, rurales y de alta
-              marginación.
+              El rezago educativo afecta al 18% de los adultos, y cerca de 27
+              millones de mexicanos mayores de 15 años no han concluido la
+              educación básica.
             </p>
             <p>
-              La educación superior tiene cobertura del <strong>42%</strong> del
-              grupo etario 18–23 años. Cerca de 27 millones de mexicanos mayores
-              de 15 años no concluyeron la educación básica. El INEA atiende a
-              esta población con programas de alfabetización y certificación.
+              Fuente: SEP, Principales Cifras del Sistema Educativo Nacional
+              2022-2023.
             </p>
             <div class="pull-quote">
               <p>
                 "La educación es la llave maestra del desarrollo: ningún país
-                puede aspirar a ser más justo y próspero sin invertir en el
-                capital humano de su gente."
+                puede aspirar a ser más justo sin invertir en el capital humano
+                de su gente."
               </p>
             </div>
           </div>
           <div class="img-slot img-slot--side">
             <img
-              src="https://www.fciencias.unam.mx/sites/default/files/Imgs/Biblioteca/SalaEstudio01.jpg"
-              alt="Estudiantes en salón de clases universitario"
-              loading="lazy"
+              src="https://img.chilango.com/2020/09/cuartoscuro_715569_digital.jpeg"
+              alt="Estudiantes en aula universitaria mexicana"
             />
             <span class="img-slot__caption"
               >Educación — 36 millones de estudiantes en educación básica</span
             >
           </div>
         </div>
-        <div class="img-slot img-slot--wide fade">
-          <img
-            src="https://i.pinimg.com/736x/8b/44/74/8b44743621471315f6ac098d4ff08fa7.jpg"
-            alt="Biblioteca universitaria con estantes llenos de libros"
-            loading="lazy"
-          />
-          <span class="img-slot__caption"
-            >Infraestructura educativa — pilar del desarrollo del capital humano
-            en México</span
-          >
-        </div>
       </section>
 
       <div class="references fade">
         <p class="references__title">REFERENCIAS — SECTORES ECONÓMICOS</p>
         <ol>
+          <li><strong>SADER.</strong> (2023). 5° Informe de Labores.</li>
+          <li><strong>INEGI.</strong> (2023). PIB por sector.</li>
           <li>
-            <strong>INEGI.</strong> (2023).
-            <em>Sistema de Cuentas Nacionales de México.</em> Instituto Nacional
-            de Estadística y Geografía. https://www.inegi.org.mx
+            <strong>Secretaría de Economía.</strong> (2023). Estadísticas de
+            Comercio Exterior.
           </li>
           <li>
-            <strong>SADER.</strong> (2022).
-            <em>Diagnóstico del Sector Agroalimentario de México 2022.</em>
-            Secretaría de Agricultura y Desarrollo Rural. Ciudad de México.
+            <strong>SICT.</strong> (2022). Estadísticas del Sector
+            Comunicaciones y Transportes.
           </li>
           <li>
-            <strong>SICT.</strong> (2022).
-            <em>Estadísticas del Sector Comunicaciones y Transportes.</em>
-            Secretaría de Infraestructura, Comunicaciones y Transportes. México.
+            <strong>IFT.</strong> (2023). Anuario Estadístico de
+            Telecomunicaciones.
           </li>
           <li>
-            <strong>IFT.</strong> (2023).
-            <em>Anuario Estadístico de Telecomunicaciones 2022.</em> Instituto
-            Federal de Telecomunicaciones. Ciudad de México.
+            <strong>CONAVI.</strong> (2022). Rezago Habitacional en México.
           </li>
           <li>
-            <strong>CONAVI.</strong> (2022).
-            <em>Rezago Habitacional en México.</em> Comisión Nacional de
-            Vivienda. Ciudad de México.
+            <strong>CONAGUA.</strong> (2022). Estadísticas del Agua en México.
           </li>
           <li>
-            <strong>CONAGUA.</strong> (2022).
-            <em>Estadísticas del Agua en México.</em> Comisión Nacional del
-            Agua. Ciudad de México.
-          </li>
-          <li>
-            <strong>SEP.</strong> (2023).
-            <em
-              >Sistema Educativo de los Estados Unidos Mexicanos: Principales
-              Cifras 2022–2023.</em
-            >
-            Secretaría de Educación Pública. México.
-          </li>
-          <li>
-            <strong>OCDE.</strong> (2023).
-            <em>PISA 2022 Results.</em> Organisation for Economic Co-operation
-            and Development. https://www.oecd.org/pisa
-          </li>
-          <li>
-            <strong>Secretaría de Economía.</strong> (2022).
-            <em>Sector Automotriz: Perfil del Sector.</em> Ciudad de México.
+            <strong>SEP.</strong> (2023). Principales Cifras del Sistema
+            Educativo Nacional 2022-2023.
           </li>
         </ol>
       </div>
     </div>
-    <!-- /t2 -->
+
+    <!-- ══════════════════════════════════════
+     PESTAÑA 3 – COMERCIO EXTERIOR Y FINANZAS
+    ══════════════════════════════════════ -->
+    <div id="t3" class="tab-panel">
+      <div class="sec-banner fade">
+        <div>
+          <p class="sec-banner__label">Subcompetencia III</p>
+          <h2>Comercio Exterior &<br />Finanzas Públicas</h2>
+          <p>
+            La inserción de México en la economía global y el manejo de sus
+            finanzas internas determinan la estabilidad y el crecimiento del
+            país.
+          </p>
+        </div>
+        <div class="sec-banner__num" aria-hidden="true">03</div>
+      </div>
+
+      <!-- 3.1 COMERCIO EXTERIOR -->
+      <section class="article fade">
+        <p class="article__tag">3.1 — Comercio Exterior</p>
+        <h3>Comercio <i>Exterior</i></h3>
+        <div class="article__body">
+          <div class="article__text">
+            <p>
+              En 2023, las exportaciones totales alcanzaron 593 mil millones de
+              dólares, de las cuales el 83% fueron manufactureras. Estados
+              Unidos es el principal socio comercial (80% de las exportaciones).
+              El <strong>T-MEC</strong> rige las relaciones comerciales con
+              América del Norte.
+            </p>
+            <p>
+              Los principales productos de exportación incluyen automóviles,
+              autopartes, computadoras, petróleo crudo y aguacate. La
+              dependencia casi exclusiva del mercado estadounidense es una
+              vulnerabilidad estratégica.
+            </p>
+            <p>
+              Fuente: INEGI, Balanza Comercial de Mercancías de México, 2023;
+              Secretaría de Economía.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://cdn-3.expansion.mx/dims4/default/6053e9a/2147483647/strip/true/crop/1280x852+0+0/resize/1200x799!/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2F05%2F5a%2F8f2e2a814edb92099c5ea1b08ad7%2Fcuartoscuro-794526-impreso.jpeg"
+              alt="Puerto de carga o aduana en México, contenedores"
+            />
+            <span class="img-slot__caption"
+              >Exportaciones — 593 mil millones de dólares en 2023</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.2 BALANZA DE PAGOS -->
+      <section class="article fade">
+        <p class="article__tag">3.2 — Balanza de Pagos</p>
+        <h3>Balanza <i>de Pagos</i></h3>
+        <div class="article__body article__body--rev">
+          <div class="article__text">
+            <p>
+              La cuenta corriente registró un déficit de 14,282 millones de
+              dólares en 2023 (0.8% del PIB). Las
+              <strong>remesas familiares</strong> alcanzaron un récord histórico
+              de 63,300 millones de dólares, compensando el déficit comercial.
+              La inversión extranjera directa sumó 36,058 millones de dólares.
+            </p>
+            <p>
+              La entrada de divisas por remesas es fundamental para la
+              estabilidad macroeconómica y el consumo en millones de hogares
+              mexicanos.
+            </p>
+            <p>Fuente: Banco de México, Balanza de Pagos 2023.</p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://www.gob.mx/cms/uploads/article/main_image/28731/Remesas.jpg"
+              alt="Gráfico de balanza de pagos o envío de remesas"
+            />
+            <span class="img-slot__caption"
+              >Remesas familiares — récord de 63,300 millones de dólares</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.3 GASTO Y DÉFICIT -->
+      <section class="article fade">
+        <p class="article__tag">3.3 — Gasto y Déficit</p>
+        <h3>Gasto y <i>Déficit Gubernamental</i></h3>
+        <div class="article__body">
+          <div class="article__text">
+            <p>
+              El gasto público neto total presupuestado para 2024 asciende a
+              9.06 billones de pesos. El déficit presupuestario se aprobó en
+              1.6% del PIB, con prioridad en programas sociales, infraestructura
+              y seguridad. La deuda pública bruta representó el 48.8% del PIB en
+              2023.
+            </p>
+            <p>
+              El equilibrio entre gasto social e inversión productiva es uno de
+              los principales debates de política económica.
+            </p>
+            <p>
+              Fuente: SHCP, Paquete Económico 2024; Criterios Generales de
+              Política Económica.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://elceo.com/wp-content/uploads/2026/02/deficit-comercial-mexico-enero-2026.jpg"
+              alt="Palacio Nacional o gráfico de gasto público en México"
+            />
+            <span class="img-slot__caption"
+              >Gasto público — 9.06 billones de pesos en 2024</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 3.4 INFLACIÓN -->
+      <section class="article fade">
+        <p class="article__tag">3.4 — Inflación y Deflación</p>
+        <h3>Inflación <i>& Deflación</i></h3>
+        <div class="article__body article__body--rev">
+          <div class="article__text">
+            <p>
+              La inflación general anual se ubicó en 4.66% en la primera
+              quincena de abril de 2024 (INEGI). El índice subyacente, que
+              excluye alimentos y energéticos, fue de 4.37%. El Banco de México
+              mantiene la tasa de interés de referencia en 11.25% para contener
+              las presiones inflacionarias.
+            </p>
+            <p>
+              No se observan riesgos de deflación; el reto es lograr una
+              convergencia gradual hacia la meta de inflación del 3% sin frenar
+              el crecimiento económico.
+            </p>
+            <p>
+              Fuente: INEGI, Índice Nacional de Precios al Consumidor; Banxico,
+              Anuncio de Política Monetaria.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://nrnoticias.mx/wp-content/uploads/2025/12/inflacion.jpeg"
+              alt="Gráfica de inflación o precios en el supermercado"
+            />
+            <span class="img-slot__caption"
+              >Inflación — 4.66% anual, meta de 3%</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="references fade">
+        <p class="references__title">REFERENCIAS — COMERCIO Y FINANZAS</p>
+        <ol>
+          <li>
+            <strong>INEGI.</strong> (2023). Balanza Comercial de Mercancías de
+            México.
+          </li>
+          <li><strong>Banco de México.</strong> (2023). Balanza de Pagos.</li>
+          <li><strong>SHCP.</strong> (2024). Paquete Económico 2024.</li>
+          <li>
+            <strong>INEGI.</strong> (2024). Índice Nacional de Precios al
+            Consumidor.
+          </li>
+          <li>
+            <strong>Banco de México.</strong> (2024). Anuncio de Política
+            Monetaria.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════
+     PESTAÑA 4 – MARCO POLÍTICO
+    ══════════════════════════════════════ -->
+    <div id="t4" class="tab-panel">
+      <div class="sec-banner fade">
+        <div>
+          <p class="sec-banner__label">Subcompetencia IV</p>
+          <h2>Marco Político<br />& Actualidad</h2>
+          <p>
+            La Constitución, la situación política actual y el sistema de
+            partidos configuran el entorno en el que se toman las decisiones
+            socioeconómicas del país.
+          </p>
+        </div>
+        <div class="sec-banner__num" aria-hidden="true">04</div>
+      </div>
+
+      <!-- 4.1 CONSTITUCIÓN -->
+      <section class="article fade">
+        <p class="article__tag">4.1 — Constitución</p>
+        <h3>Constitución Política <i>de los E.U.M.</i></h3>
+        <div class="article__body">
+          <div class="article__text">
+            <p>
+              La Constitución de 1917 es la ley suprema de México. Establece un
+              sistema republicano, democrático, representativo y federal. Los
+              artículos más relevantes para la economía son el 25 (rectoría del
+              Estado en el desarrollo), 26 (planeación democrática), 27
+              (propiedad originaria de tierras y aguas) y 123 (derechos
+              laborales).
+            </p>
+            <p>
+              Desde su promulgación, ha tenido más de 700 reformas, adaptándose
+              a los cambios sociales, económicos y políticos del país.
+            </p>
+            <p>
+              Fuente: Cámara de Diputados, Constitución Política de los Estados
+              Unidos Mexicanos vigente.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://iteso.mx/documents/107335/525929/5720114.jpg/beddadcf-9fc4-cb56-23fc-cc28d1318efa"
+              alt="Libro de la Constitución Mexicana o acto cívico"
+            />
+            <span class="img-slot__caption"
+              >Constitución de 1917 — ley suprema de México</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.2 SITUACIÓN POLÍTICA -->
+      <section class="article fade">
+        <p class="article__tag">4.2 — Situación Política</p>
+        <h3>La Situación <i>Política en México</i></h3>
+        <div class="article__body article__body--rev">
+          <div class="article__text">
+            <p>
+              El país atraviesa la llamada
+              <strong>"Cuarta Transformación"</strong>, con un gobierno que
+              enfatiza la austeridad republicana, los programas sociales y la
+              participación popular. Los debates actuales incluyen la
+              militarización de tareas de seguridad, las reformas electorales y
+              la política energética.
+            </p>
+            <p>
+              Las elecciones de 2024 configurarán el rumbo político para los
+              próximos años, con una ciudadanía cada vez más participativa pero
+              también polarizada.
+            </p>
+            <p>
+              Fuente: Análisis de coyuntura, Instituto de Investigaciones
+              Sociales UNAM; COLMEX.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://media.admagazine.com/photos/618a695b72049e253173eafb/16:9/w_2992,h_1683,c_limit/62375.jpg"
+              alt="Congreso de la Unión o Palacio Nacional"
+            />
+            <span class="img-slot__caption"
+              >Transformación política — debates y elecciones 2024</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- 4.3 PARTIDOS POLÍTICOS -->
+      <section class="article fade">
+        <p class="article__tag">4.3 — Partidos Políticos</p>
+        <h3>Los <i>Partidos Políticos</i></h3>
+        <div class="article__body">
+          <div class="article__text">
+            <p>
+              El sistema de partidos está conformado por Morena, PAN, PRI, PRD,
+              PT, PVEM y Movimiento Ciudadano, entre otros. Morena es
+              actualmente la fuerza dominante. La oposición formó la coalición
+              "Frente Amplio por México" para competir en los comicios de 2024.
+            </p>
+            <p>
+              El multipartidismo mexicano es dinámico, con una alta volatilidad
+              electoral y un reacomodo constante de alianzas. El INE regula la
+              participación y el financiamiento de los partidos.
+            </p>
+            <p>
+              Fuente: INE, Padrón de militantes y resultados electorales
+              2018-2023.
+            </p>
+          </div>
+          <div class="img-slot img-slot--side">
+            <img
+              src="https://sprinforma.mx/upload/982db485295f80d4a5231aa11fbda644.jpg"
+              alt="Logotipos de partidos políticos mexicanos o urnas electorales"
+            />
+            <span class="img-slot__caption"
+              >Sistema de partidos — Morena, PAN, PRI, MC y otros</span
+            >
+          </div>
+        </div>
+      </section>
+
+      <div class="references fade">
+        <p class="references__title">REFERENCIAS — MARCO POLÍTICO</p>
+        <ol>
+          <li>
+            <strong>Cámara de Diputados.</strong> (2024). Constitución Política
+            de los E.U.M.
+          </li>
+          <li>
+            <strong>IIS-UNAM.</strong> (2023). Análisis de coyuntura política.
+          </li>
+          <li>
+            <strong>INE.</strong> (2023). Resultados electorales y padrón de
+            militantes.
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- DATOS PERSONALES (visible siempre) -->
+    <section
+      class="personal-data container"
+      style="max-width: 900px; margin: 3rem auto; padding: 2rem"
+    >
+      <h2>Datos Personales</h2>
+      <p><strong>Nombre:</strong>Juan Pablo Zapata Reséndiz</p>
+      <p><strong>Matrícula:</strong>68495</p>
+      <p><strong>Materia:</strong>RECURSOS Y NECESIDADES DE MÉXICO</p>
+      <p><strong>Facultad:</strong>Facultad de Ingeniería</p>
+      <p><strong>Carrera:</strong> Ingeniería en Sistemas Computacionales</p>
+      <p class="text-muted" style="font-size: 0.8rem; margin-top: 1rem">
+        GitPages — Proyecto de segundo parcial.
+      </p>
+    </section>
 
     <footer>
-      <p>RECURSOS NATURALES &amp; SECTORES ECONÓMICOS — PRIMER PARCIAL</p>
+      <p>PROBLEMAS SOCIOECONÓMICOS DE MÉXICO · PROYECTO ESCOLAR</p>
       <p>ECONOMÍA Y SOCIEDAD · INGENIERÍA</p>
     </footer>
 
     <script>
-      // Tabs
+      // Funcionalidad de pestañas
       document.querySelectorAll(".tab-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           document
@@ -1203,7 +1467,7 @@
         });
       });
 
-      // Fade on scroll
+      // Animación de entrada al hacer scroll
       function triggerFades() {
         const obs = new IntersectionObserver(
           (entries) => {
